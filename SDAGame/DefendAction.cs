@@ -10,7 +10,7 @@ namespace SDAGame
     public class DefendAction : Action
     {
 
-        public DefendAction(int numTargets) : base(numTargets)
+        public DefendAction() : base(0)
         {
             this.Name = "Defend";
         }

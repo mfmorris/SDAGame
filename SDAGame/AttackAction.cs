@@ -10,11 +10,10 @@ namespace SDAGame
     {
         private Random random;
 
-        public AttackAction(int numTargets, Random random): base(numTargets)
+        public AttackAction(Random random): base(1)
         {
             this.random = random;
             this.Name = "Attack";
-            this.NumTargets = 1;
         }
 
         public override void Resolve(Actor actor, Actor[] targets)
