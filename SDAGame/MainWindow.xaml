@@ -64,13 +64,8 @@
             <Rectangle x:Name="EnemyHealthBar1" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="302" Width="100" Visibility="Hidden"/>
             <Rectangle x:Name="EnemyHealthBar2" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="406" Width="100" Visibility="Hidden"/>
             <Rectangle x:Name="EnemyHealthBar4" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="510" Width="100" Visibility="Hidden"/>
-            <Rectangle x:Name="PCHealthBar5" Fill="#FFA80000" Stroke="Black" Height="10" Canvas.Left="129" Canvas.Top="94" Width="100" Visibility="Hidden"/>
-            <Rectangle x:Name="PCHealthBar3" Fill="#FFA80000" Stroke="Black" Height="10" Canvas.Left="129" Canvas.Top="198" Width="100" Visibility="Hidden"/>
-            <Rectangle x:Name="PCHealthBar1" Fill="#FFA80000" Stroke="Black" Height="10" Canvas.Left="129" Canvas.Top="302" Width="100" Visibility="Hidden"/>
-            <Rectangle x:Name="PCHealthBar2" Fill="#FFA80000" Stroke="Black" Height="10" Canvas.Left="129" Canvas.Top="406" Width="100" Visibility="Hidden"/>
-            <Rectangle x:Name="PCHealthBar4" Fill="#FFA80000" Stroke="Black" Height="10" Canvas.Left="129" Canvas.Top="510" Width="100" Visibility="Hidden"/>
             <Label x:Name="StatusLabel" Content="" Canvas.Left="234" Canvas.Top="10" Height="80" Width="598" Foreground="#FF890000" FontWeight="Bold" FontStretch="Expanded" FontFamily="Copperplate Gothic Bold" FontSize="16"/>
-            <Button x:Name="NextButton" Content="Next" Width="75" Canvas.Left="498" Canvas.Top="494" Click="NextButton_Click"/>
+            <Button x:Name="NextButton" Content="Next" Width="75" Canvas.Left="498" Canvas.Top="494" Click="NextButton_Click" IsEnabled="False"/>
         </Canvas>
         <ListBox HorizontalAlignment="Left" Height="172" Margin="358,520,0,0" VerticalAlignment="Top" Width="358" x:Name="ActionListBox">
             <ListBoxItem x:Name="ActionItem1" Content="" Selected="ActionItem_Selected" VerticalContentAlignment="Center" Visibility="Hidden"/>

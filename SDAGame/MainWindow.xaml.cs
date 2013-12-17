@@ -40,6 +40,8 @@ namespace SDAGame
         Action selectedAction = null;
         int numberOfTargets = 0;
 
+        List<Enemy> actionTargets;
+
         Enemy enemy1 = null;
         Enemy enemy2 = null;
         Enemy enemy3 = null;
@@ -53,14 +55,14 @@ namespace SDAGame
             FightScene fightScene = new FightScene();
             MonsterBuilder monsterBuilder = new MonsterBuilder(fightScene);
 
+            actionTargets = new List<Enemy>();
+
             // Generate Characters
             pc1 = new Druid();
             PlayerCharacter1.Source = pc1.image;
-            PCHealthBar1.Visibility = Visibility.Visible;
 
             pc2 = new Viking();
             PlayerCharacter2.Source = pc2.image;
-            PCHealthBar2.Visibility = Visibility.Visible;
 
             totalCharacters = 2;
 
@@ -87,6 +89,7 @@ namespace SDAGame
             if (state == ACTION_SELECT)
             {
                 // Update UI
+                NextButton.IsEnabled = true;
                 SelectAction((ListBoxItem)sender);
             }
         }
@@ -125,6 +128,7 @@ namespace SDAGame
                 {
                     // Update UI
                     numberOfTargets--;
+                    TargetEnemy((Image)sender);
                     if (numberOfTargets <= 0)
                     {
                         if (charactersSelected == totalCharacters)
@@ -210,40 +214,30 @@ namespace SDAGame
             }
         }
 
-        private void UpdateUIWithEnemy(Image image)
+        private void TargetEnemy(Image image)
         {
             string enemyImage = image.Name;
-            Enemy enemy = null;
 
             if (enemyImage == "EnemyCharacter1")
             {
-                enemy = enemy1;
+                actionTargets.Add(enemy1);
             }
             else if (enemyImage == "EnemyCharacter2")
             {
-                enemy = enemy2;
+                actionTargets.Add(enemy2);
             }
             else if (enemyImage == "EnemyCharacter3")
             {
-                enemy = enemy3;
+                actionTargets.Add(enemy3);
             }
             else if (enemyImage == "EnemyCharacter4")
             {
-                enemy = enemy4;
+                actionTargets.Add(enemy4);
             }
             else if (enemyImage == "EnemyCharacter5")
             {
-                enemy = enemy5;
+                actionTargets.Add(enemy5);
             }
-
-            NameValue.Content = enemy.Name;
-            HealthValue.Content = enemy.HP;
-            MaxHealthValue.Content = enemy.MaxHP;
-
-            AttackValue.Content = enemy.ATK;
-            WisdomValue.Content = enemy.WIS;
-            SpeedValue.Content = enemy.SPD;
-            DefenseValue.Content = enemy.DEF;
         }
 
         private void SelectAction(ListBoxItem selection)
@@ -280,6 +274,7 @@ namespace SDAGame
             selectedPC = null;
             selectedAction = null;
             selectedPCImage = null;
+            actionTargets.Clear();
 
             NameValue.Content = "";
             HealthValue.Content = "";
@@ -304,12 +299,10 @@ namespace SDAGame
             ActionItem5.Visibility = Visibility.Hidden;
 
             ActionDescriptionBox.Content = "";
-
-            NextButton.IsEnabled = true;
         }
 
         private void EndTurn()
-        {
+        {            
             StatusLabel.Content = "Select a character.";
 
             state = CHARACTER_SELECT;
@@ -333,6 +326,7 @@ namespace SDAGame
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
+            NextButton.IsEnabled = false;
             if (state == ACTION_SELECT)
             {
                 // Disable further selection
@@ -356,9 +350,26 @@ namespace SDAGame
                 {
                     StatusLabel.Content = "Select " + numberOfTargets + " target.";
                     state = TARGET_SELECT;
-                    NextButton.IsEnabled = false;
                 }
             }
+        }
+
+        public void UpdateEnemyHealth()
+        {
+            if (enemy1 != null) EnemyHealthBar1.Width = enemy1.HP / enemy1.MaxHP * 100;
+
+            if (enemy2 != null) EnemyHealthBar2.Width = enemy2.HP / enemy2.MaxHP * 100;
+
+            if (enemy3 != null) EnemyHealthBar3.Width = enemy3.HP / enemy3.MaxHP * 100;
+
+            if (enemy4 != null) EnemyHealthBar4.Width = enemy4.HP / enemy4.MaxHP * 100;
+
+            if (enemy5 != null) EnemyHealthBar5.Width = enemy5.HP / enemy5.MaxHP * 100;
+        }
+
+        public void UpdateActor(Actor actor)
+        {
+
         }
     }
 }
