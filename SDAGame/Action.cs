@@ -71,6 +71,7 @@ namespace SDAGame
         public Action(Actor owner, int numTargets)
         {
             this.NumTargets = numTargets;
+            this.Owner = owner;
         }
 
         public abstract void Resolve(Actor[] targets);

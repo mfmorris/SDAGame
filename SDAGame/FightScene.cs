@@ -74,9 +74,9 @@ namespace SDAGame
 
         public void ResolveActions()
         {
-            for (int i = actionQueue.Count - 1; i >= 0; ++i)
+            for (int i = actionQueue.Values.Count - 1; i >= 0; ++i)
             {
-                actionQueue[i].Execute();
+                actionQueue.Values[i].Execute();
             }
             actionQueue.Clear();
         }
