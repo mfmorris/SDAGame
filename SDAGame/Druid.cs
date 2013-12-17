@@ -10,11 +10,11 @@ namespace SDAGame
     {
         public Druid() : base("Druid", "\\druid.png", null)
         {
-            MaxHP = 10;
+            MaxHP = 15;
             BaseATK = 4;
-            BaseDEF = 2;
-            BaseSPD = 8;
-            BaseWIS = 5;
+            BaseDEF = 6;
+            BaseSPD = 7;
+            BaseWIS = 8;
 
             Actions.Add(new AttackAction(this));
             Actions.Add(new DefendAction(this));

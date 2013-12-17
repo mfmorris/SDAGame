@@ -10,11 +10,11 @@ namespace SDAGame
     {
         public Viking() : base("Viking Warrior", "\\viking.png", null)
         {
-            MaxHP = 10;
-            BaseATK = 4;
+            MaxHP = 20;
+            BaseATK = 6;
             BaseDEF = 2;
-            BaseSPD = 8;
-            BaseWIS = 5;
+            BaseSPD = 5;
+            BaseWIS = 2;
 
             Actions.Add(new AttackAction(this));
             Actions.Add(new DefendAction(this));

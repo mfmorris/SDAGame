@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Threading;
 
 namespace SDAGame
 {
@@ -26,6 +25,8 @@ namespace SDAGame
         private const int TARGET_SELECT = 2;
         private const int END_TURN = 3;
         int state;
+
+        FightScene fightScene;
 
         PlayerCharacter pc1 = null;
         PlayerCharacter pc2 = null;
@@ -42,18 +43,15 @@ namespace SDAGame
 
         List<Enemy> actionTargets;
 
-        Enemy enemy1 = null;
-        Enemy enemy2 = null;
-        Enemy enemy3 = null;
-        Enemy enemy4 = null;
-        Enemy enemy5 = null;
+        //Enemy enemy1 = null;
+        //Enemy enemy2 = null;
+        //Enemy enemy3 = null;
+        //Enemy enemy4 = null;
+        //Enemy enemy5 = null;
         
         public MainWindow()
         {
             InitializeComponent();
-
-            FightScene fightScene = new FightScene();
-            MonsterBuilder monsterBuilder = new MonsterBuilder(fightScene);
 
             actionTargets = new List<Enemy>();
 
@@ -66,17 +64,19 @@ namespace SDAGame
 
             totalCharacters = 2;
 
+            fightScene = new FightScene(pc1, pc2);
+
             // Generate Enemies
-            enemy1 = monsterBuilder.GetKobold();
-            EnemyCharacter1.Source = enemy1.image;
+            //enemy1 = fightScene.Enemies[0];
+            EnemyCharacter1.Source = fightScene.Enemies[0].image;
             EnemyHealthBar1.Visibility = Visibility.Visible;
 
-            enemy2 = monsterBuilder.GetKobold();
-            EnemyCharacter2.Source = enemy2.image;
+            //enemy2 = fightScene.Enemies[1];
+            EnemyCharacter2.Source = fightScene.Enemies[1].image;
             EnemyHealthBar2.Visibility = Visibility.Visible;
 
-            enemy3 = monsterBuilder.GetKobold();
-            EnemyCharacter3.Source = enemy3.image;
+            //enemy3 = fightScene.Enemies[2];
+            EnemyCharacter3.Source = fightScene.Enemies[2].image;
             EnemyHealthBar3.Visibility = Visibility.Visible;
 
             state = CHARACTER_SELECT;
@@ -220,23 +220,23 @@ namespace SDAGame
 
             if (enemyImage == "EnemyCharacter1")
             {
-                actionTargets.Add(enemy1);
+                actionTargets.Add(fightScene.Enemies[0]);
             }
             else if (enemyImage == "EnemyCharacter2")
             {
-                actionTargets.Add(enemy2);
+                actionTargets.Add(fightScene.Enemies[1]);
             }
             else if (enemyImage == "EnemyCharacter3")
             {
-                actionTargets.Add(enemy3);
+                actionTargets.Add(fightScene.Enemies[2]);
             }
             else if (enemyImage == "EnemyCharacter4")
             {
-                actionTargets.Add(enemy4);
+                actionTargets.Add(fightScene.Enemies[3]);
             }
             else if (enemyImage == "EnemyCharacter5")
             {
-                actionTargets.Add(enemy5);
+                actionTargets.Add(fightScene.Enemies[4]);
             }
         }
 
@@ -354,22 +354,55 @@ namespace SDAGame
             }
         }
 
-        public void UpdateEnemyHealth()
-        {
-            if (enemy1 != null) EnemyHealthBar1.Width = enemy1.HP / enemy1.MaxHP * 100;
-
-            if (enemy2 != null) EnemyHealthBar2.Width = enemy2.HP / enemy2.MaxHP * 100;
-
-            if (enemy3 != null) EnemyHealthBar3.Width = enemy3.HP / enemy3.MaxHP * 100;
-
-            if (enemy4 != null) EnemyHealthBar4.Width = enemy4.HP / enemy4.MaxHP * 100;
-
-            if (enemy5 != null) EnemyHealthBar5.Width = enemy5.HP / enemy5.MaxHP * 100;
-        }
-
         public void UpdateActor(Actor actor)
         {
+            if (actor is PlayerCharacter)
+            {
+                if (actor == pc1)
+                {
 
+                }
+                else if (actor == pc2)
+                {
+
+                }
+                else if (actor == pc3)
+                {
+
+                }
+                else if (actor == pc4)
+                {
+
+                }
+                else if (actor == pc5)
+                {
+
+                }
+     
+            }
+            else if (actor is Enemy)
+            {
+                if (actor == fightScene.Enemies[0])
+                {
+                    EnemyHealthBar1.Width = fightScene.Enemies[0].HP / fightScene.Enemies[0].MaxHP * 100;
+                }
+                else if (actor == fightScene.Enemies[1])
+                {
+                    EnemyHealthBar2.Width = fightScene.Enemies[1].HP / fightScene.Enemies[1].MaxHP * 100;
+                }
+                else if (actor == fightScene.Enemies[2])
+                {
+                    EnemyHealthBar3.Width = fightScene.Enemies[2].HP / fightScene.Enemies[2].MaxHP * 100;
+                }
+                else if (actor == fightScene.Enemies[3])
+                {
+                    EnemyHealthBar4.Width = fightScene.Enemies[3].HP / fightScene.Enemies[3].MaxHP * 100;
+                }
+                else if (actor == fightScene.Enemies[4])
+                {
+                    EnemyHealthBar5.Width = fightScene.Enemies[4].HP / fightScene.Enemies[4].MaxHP * 100;
+                }
+            }
         }
     }
 }
