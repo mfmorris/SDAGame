@@ -10,9 +10,9 @@ namespace SDAGame
     {
         public Druid() : base("Druid", "\\druid.png", null)
         {
-            MaxHP = 15;
+            MaxHP = 150;
             BaseATK = 4;
-            BaseDEF = 6;
+            BaseDEF = 12;
             BaseSPD = 7;
             BaseWIS = 8;
 

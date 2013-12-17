@@ -14,7 +14,7 @@ namespace SDAGame
         {
             MaxHP = 100;
             BaseATK = 4;
-            BaseDEF = 2;
+            BaseDEF = 8;
             BaseSPD = 8;
             BaseWIS = 5;
 

@@ -10,9 +10,9 @@ namespace SDAGame
     {
         public Viking() : base("Viking Warrior", "\\viking.png", null)
         {
-            MaxHP = 20;
+            MaxHP = 200;
             BaseATK = 6;
-            BaseDEF = 2;
+            BaseDEF = 14;
             BaseSPD = 5;
             BaseWIS = 2;
 
