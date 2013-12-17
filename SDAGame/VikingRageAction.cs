@@ -9,10 +9,9 @@ namespace SDAGame
     class VikingRageAction : Action
     {
 
-        public VikingRageAction(int numTargets): base(numTargets)
+        public VikingRageAction(): base(1)
         {
             this.Name = "Viking Rage";
-            this.NumTargets = 0;
         }
 
         public override void Resolve(Actor actor, Actor[] targets)

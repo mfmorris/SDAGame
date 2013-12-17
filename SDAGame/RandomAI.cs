@@ -10,9 +10,9 @@ namespace SDAGame
     {
         private Random random;
 
-        public RandomAI(Enemy subject, List<Enemy> enemies,
+        public RandomAI(List<Enemy> enemies,
             List<PlayerCharacter> players, Random random)
-            : base(subject, enemies, players)
+            : base(enemies, players)
         {
             this.random = random;
         }
@@ -38,7 +38,7 @@ namespace SDAGame
                 {
                     for (int i = 0; i < targets.Length; ++i)
                     {
-                        targets[i] = enemies[random.Next(enemies.Count)];
+                        targets[i] = players[random.Next(players.Count)];
                     }
                 }
             }

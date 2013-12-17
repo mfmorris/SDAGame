@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace SDAGame
 {
-    class Druid : PlayerCharacter
+    class Kobold : Enemy
     {
-        public Druid() : base("Druid", "\\druid.png", null)
+        public Kobold(string name = "Kobold", string imageName = "\\kobold.png", string portraitName = null)
+            :base(name, imageName, portraitName)
         {
             MaxHP = 10;
             BaseATK = 4;
@@ -16,8 +17,8 @@ namespace SDAGame
             BaseSPD = 8;
             BaseWIS = 5;
 
-            Actions.Add(new AttackAction(new Random()));
-            Actions.Add(new DefendAction());
+            AddAction(new AttackAction(new Random()));
+            AddAction(new DefendAction());
         }
     }
 }

@@ -54,6 +54,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Druid.cs" />
+    <Compile Include="Enemy.cs" />
+    <Compile Include="Kobold.cs" />
     <Compile Include="RandomAI.cs" />
     <Compile Include="Viking.cs" />
     <Compile Include="VikingRageAction.cs" />
@@ -70,7 +72,6 @@
     <Compile Include="AttackAction.cs" />
     <Compile Include="DefendAction.cs" />
     <Compile Include="EffectList.cs" />
-    <Compile Include="Enemy.cs" />
     <Compile Include="EnemyAI.cs" />
     <Compile Include="FightScene.cs" />
     <Compile Include="IAction.cs" />

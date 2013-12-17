@@ -45,8 +45,8 @@ namespace SDAGame
 
         public string Name { get;  set; }
 
-        public int HP { get; set; }
-        public int MaxHP 
+        public virtual int HP { get; set; }
+        public virtual int MaxHP 
         {
             get { return _MaxHP; }
             set
@@ -56,8 +56,8 @@ namespace SDAGame
             }
         }
 
-        public int ATK { get; set; }
-        public int BaseATK
+        public virtual int ATK { get; set; }
+        public virtual int BaseATK
         {
             get { return _BaseATK; }
             set
@@ -67,8 +67,8 @@ namespace SDAGame
             }
         }
 
-        public int DEF { get; set; }
-        public int BaseDEF
+        public virtual int DEF { get; set; }
+        public virtual int BaseDEF
         {
             get { return _BaseDEF; }
             set
@@ -78,8 +78,8 @@ namespace SDAGame
             }
         }
 
-        public int SPD { get; set; }
-        public int BaseSPD
+        public virtual int SPD { get; set; }
+        public virtual int BaseSPD
         {
             get { return _BaseSPD; }
             set
@@ -89,8 +89,8 @@ namespace SDAGame
             }
         }
 
-        public int WIS { get; set; }
-        public int BaseWIS
+        public virtual int WIS { get; set; }
+        public virtual int BaseWIS
         {
             get { return _BaseWIS; }
             set

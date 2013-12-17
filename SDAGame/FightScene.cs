@@ -31,6 +31,15 @@ namespace SDAGame
             pcs = new List<PlayerCharacter>();
             enemies = new List<Enemy>();
             random = new Random();
+            pcs.Add(new Viking());
+            pcs.Add(new Druid());
+
+            MonsterBuilder dm = new MonsterBuilder(this);
+
+            enemies.Add(dm.GetKobold());
+            enemies.Add(dm.GetKobold());
+            enemies.Add(dm.GetKobold());
+            enemies.Add(dm.GetKobold());
         }
 
         public void fight()
@@ -63,7 +72,7 @@ namespace SDAGame
                 // Generate AI Decisions
                 foreach (Enemy e in enemies)
                 {
-                    actionQueue.Add(e.SPD, ((EnemyAI)e).Act());
+                    actionQueue.Add(e.SPD, (e).Act());
                 }
 
                 // Resolve Action Queue

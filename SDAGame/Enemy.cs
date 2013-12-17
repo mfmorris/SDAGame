@@ -8,15 +8,24 @@ namespace SDAGame
 {
     public class Enemy : Actor
     {
-        public int PointValue
+
+        private EnemyAI ai;
+
+
+        public Enemy(string name, string image, string portrait = null):base(name, image, portrait)
         {
-            get;
-            protected set;
         }
 
-        public Enemy(string name, string image, string portrait = null)
-            : base(name, image, portrait) { }
+        public virtual PendingAction Act()
+        {
+            return ai.Act();
+        }
+
+        public virtual void setAI(EnemyAI ai)
+        {
+            ai.subject = this;
+            this.ai = ai;
+        }
+
     }
-
-
 }

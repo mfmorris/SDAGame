@@ -49,7 +49,7 @@ namespace SDAGame
             InitializeComponent();
 
             FightScene fightScene = new FightScene();
-            MonsterBuilder monsterBuilder = new MonsterBuilder();
+            MonsterBuilder monsterBuilder = new MonsterBuilder(fightScene);
 
             // Generate Characters
             pc1 = new Druid();
@@ -63,15 +63,15 @@ namespace SDAGame
             totalCharacters = 2;
 
             // Generate Enemies
-            enemy1 = monsterBuilder.GetKobold(fightScene);
+            enemy1 = monsterBuilder.GetKobold();
             EnemyCharacter1.Source = enemy1.image;
             EnemyHealthBar1.Visibility = Visibility.Visible;
 
-            enemy2 = monsterBuilder.GetKobold(fightScene);
+            enemy2 = monsterBuilder.GetKobold();
             EnemyCharacter2.Source = enemy2.image;
             EnemyHealthBar2.Visibility = Visibility.Visible;
 
-            enemy3 = monsterBuilder.GetKobold(fightScene);
+            enemy3 = monsterBuilder.GetKobold();
             EnemyCharacter3.Source = enemy3.image;
             EnemyHealthBar3.Visibility = Visibility.Visible;
 

@@ -6,19 +6,20 @@ using System.Threading.Tasks;
 
 namespace SDAGame
 {
-    public abstract class EnemyAI : Enemy
+    public abstract class EnemyAI
     {
-        protected Enemy subject;
         protected List<Enemy> enemies;
         protected List<PlayerCharacter> players;
 
-        public EnemyAI(Enemy subject, List<Enemy> enemies, List<PlayerCharacter> players)
-            :base(subject.Name, subject.imageName, subject.portraitName)
+        public Enemy subject { get; set; }
+
+
+        public EnemyAI( List<Enemy> enemies, List<PlayerCharacter> players)
         {
-            this.subject = subject;
             this.enemies = enemies;
             this.players = players;
         }
+
 
         public abstract PendingAction Act();
     }

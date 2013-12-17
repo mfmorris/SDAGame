@@ -12,18 +12,18 @@ namespace SDAGame
         private List<Action> liveActions = new List<Action>();
 
         private Random random = new Random();
+        private FightScene scene;
 
-        public Enemy GetKobold(FightScene scene)
+        public MonsterBuilder(FightScene scene)
         {
-            Enemy kobold = new Enemy("Kobold", "\\kobold.png")
-            {
-                MaxHP = 10,
-                BaseATK = 4,
-                BaseDEF = 2,
-                BaseSPD = 8,
-                BaseWIS = 5
-            };
-            return new RandomAI(kobold, scene.enemies, scene.pcs, scene.random);
+            this.scene = scene;
+        }
+
+        public Enemy GetKobold()
+        {
+            Kobold kob = new Kobold();
+            kob.setAI(new RandomAI(scene.enemies, scene.pcs, scene.random));
+            return kob;
         }
     }
 }

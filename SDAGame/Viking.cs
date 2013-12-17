@@ -16,9 +16,9 @@ namespace SDAGame
             BaseSPD = 8;
             BaseWIS = 5;
 
-            Actions.Add(new AttackAction(1, new Random()));
-            Actions.Add(new DefendAction(0));
-            Actions.Add(new VikingRageAction(0));
+            Actions.Add(new AttackAction( new Random()));
+            Actions.Add(new DefendAction());
+            Actions.Add(new VikingRageAction());
         }
     }
 }

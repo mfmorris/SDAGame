@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FightScene
+namespace SDAGame
 {
     class Program
     {
@@ -23,9 +23,9 @@ namespace FightScene
         static void Main(string[] args)
         {
             FightScene fight = new FightScene();
-            MonsterBuilder dungeonMaster = new MonsterBuilder();
+            fight.fight();
 
-            Enemy kb1 = dungeonMaster.GetKobold(fight);
+            Console.ReadLine();
 
         }
 
