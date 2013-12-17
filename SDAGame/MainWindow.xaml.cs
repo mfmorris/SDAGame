@@ -131,6 +131,7 @@ namespace SDAGame
                     TargetEnemy((Image)sender);
                     if (numberOfTargets <= 0)
                     {
+                        fightScene.AddAction(selectedAction, actionTargets.ToArray(), selectedPC.SPD);
                         if (charactersSelected == totalCharacters)
                         {
                             EndTurn();
@@ -322,6 +323,8 @@ namespace SDAGame
             PlayerCharacter4.Opacity = 1;
             PlayerCharacter5.IsEnabled = true;
             PlayerCharacter5.Opacity = 1;
+
+            fightScene.ResolveActions();
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
@@ -335,6 +338,7 @@ namespace SDAGame
 
                 if (numberOfTargets == 0)
                 {
+                    fightScene.AddAction(selectedAction, null, selectedPC.SPD);
                     if (charactersSelected == totalCharacters)
                     {
                         EndTurn();
