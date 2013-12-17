@@ -70,6 +70,7 @@
             <Rectangle x:Name="PCHealthBar2" Fill="#FFA80000" Stroke="Black" Height="10" Canvas.Left="129" Canvas.Top="406" Width="100" Visibility="Hidden"/>
             <Rectangle x:Name="PCHealthBar4" Fill="#FFA80000" Stroke="Black" Height="10" Canvas.Left="129" Canvas.Top="510" Width="100" Visibility="Hidden"/>
             <Label x:Name="StatusLabel" Content="" Canvas.Left="234" Canvas.Top="10" Height="80" Width="598" Foreground="#FF890000" FontWeight="Bold" FontStretch="Expanded" FontFamily="Copperplate Gothic Bold" FontSize="16"/>
+            <Button x:Name="NextButton" Content="Next" Width="75" Canvas.Left="498" Canvas.Top="494" Click="NextButton_Click"/>
         </Canvas>
         <ListBox HorizontalAlignment="Left" Height="172" Margin="358,520,0,0" VerticalAlignment="Top" Width="358" x:Name="ActionListBox">
             <ListBoxItem x:Name="ActionItem1" Content="" Selected="ActionItem_Selected" VerticalContentAlignment="Center" Visibility="Hidden"/>
@@ -99,7 +100,7 @@
             <Label Content="" HorizontalAlignment="Left" Margin="96,0,0,0" VerticalAlignment="Top" x:Name="MaxHealthValue"/>
             <Image HorizontalAlignment="Left" Height="65" Margin="285,26,0,0" VerticalAlignment="Top" Width="65"/>
         </Grid>
-        <Label x:Name="ActionDescriptionBox" Content="" HorizontalAlignment="Left" Margin="716,520,0,0" VerticalAlignment="Top" Height="172" Width="358"/>
+        <Label x:Name="ActionDescriptionBox" HorizontalAlignment="Left" Margin="716,520,0,0" VerticalAlignment="Top" Height="172" Width="358"/>
 
     </Grid>
 </Window>

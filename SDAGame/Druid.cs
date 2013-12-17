@@ -18,6 +18,7 @@ namespace SDAGame
 
             Actions.Add(new AttackAction(new Random()));
             Actions.Add(new DefendAction());
+            //Actions.Add(new CureLightAction(new Random()));
         }
     }
 }

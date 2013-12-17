@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace SDAGame
 {
@@ -32,6 +33,7 @@ namespace SDAGame
         PlayerCharacter pc4 = null;
         PlayerCharacter pc5 = null;
         PlayerCharacter selectedPC = null;
+        Image selectedPCImage = null;
         int charactersSelected = 0;
         int totalCharacters = 0;
         
@@ -84,8 +86,6 @@ namespace SDAGame
             // Select an action
             if (state == ACTION_SELECT)
             {
-                state = TARGET_SELECT;
-
                 // Update UI
                 SelectAction((ListBoxItem)sender);
             }
@@ -102,6 +102,12 @@ namespace SDAGame
 
                 // Update UI
                 charactersSelected++;
+                UpdateUIWithPC((Image)sender);
+            }
+
+            if (state == ACTION_SELECT)
+            {
+                // Update UI
                 UpdateUIWithPC((Image)sender);
             }
         }
@@ -127,7 +133,6 @@ namespace SDAGame
                         }
                         else
                         {
-                            state = CHARACTER_SELECT;
                             StatusLabel.Content = "Select a character.";
                             ResetUI();
                         }
@@ -145,6 +150,7 @@ namespace SDAGame
         {
             ResetUI();
 
+            selectedPCImage = image;
             string character = image.Name;
 
             if (character == "PlayerCharacter1")
@@ -167,10 +173,6 @@ namespace SDAGame
             {
                 selectedPC = pc5;
             }
-
-            // Disable further selection
-            image.IsEnabled = false;
-            image.Opacity = .8;
 
             NameValue.Content = selectedPC.Name;
             HealthValue.Content = selectedPC.HP;
@@ -269,31 +271,15 @@ namespace SDAGame
                 selectedAction = selectedPC.Actions[4];
             }
 
-            ActionDescriptionBox.Content = selectedAction.Name + "\nNumber of targets: " + selectedAction.NumTargets;
+            ActionDescriptionBox.Content = selectedAction.Name + "\n" + selectedAction.Description;
             numberOfTargets = selectedAction.NumTargets;
-            if (numberOfTargets == 0)
-            {
-                if (charactersSelected == totalCharacters)
-                {
-                    EndTurn();
-                }
-                else
-                {
-                    state = CHARACTER_SELECT; 
-                    StatusLabel.Content = "Select a character.";
-                    ResetUI();
-                }
-            }
-            else
-            {
-                StatusLabel.Content = "Select " + numberOfTargets + " target.";
-            }
         }
 
         private void ResetUI()
         {
             selectedPC = null;
             selectedAction = null;
+            selectedPCImage = null;
 
             NameValue.Content = "";
             HealthValue.Content = "";
@@ -318,6 +304,8 @@ namespace SDAGame
             ActionItem5.Visibility = Visibility.Hidden;
 
             ActionDescriptionBox.Content = "";
+
+            NextButton.IsEnabled = true;
         }
 
         private void EndTurn()
@@ -341,6 +329,36 @@ namespace SDAGame
             PlayerCharacter4.Opacity = 1;
             PlayerCharacter5.IsEnabled = true;
             PlayerCharacter5.Opacity = 1;
+        }
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (state == ACTION_SELECT)
+            {
+                // Disable further selection
+                selectedPCImage.IsEnabled = false;
+                selectedPCImage.Opacity = .8;
+
+                if (numberOfTargets == 0)
+                {
+                    if (charactersSelected == totalCharacters)
+                    {
+                        EndTurn();
+                    }
+                    else
+                    {
+                        state = CHARACTER_SELECT;
+                        StatusLabel.Content = "Select a character.";
+                        ResetUI();
+                    }
+                }
+                else
+                {
+                    StatusLabel.Content = "Select " + numberOfTargets + " target.";
+                    state = TARGET_SELECT;
+                    NextButton.IsEnabled = false;
+                }
+            }
         }
     }
 }
