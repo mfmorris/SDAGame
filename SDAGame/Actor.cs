@@ -13,6 +13,10 @@ namespace SDAGame
 
     public delegate void DamageNotification(Actor sender, int damageTaken);
 
+    /// <summary>
+    /// All players and monsters have certain things in common.  This base class
+    /// provides that.
+    /// </summary>
     public abstract class Actor
     {
         #region events

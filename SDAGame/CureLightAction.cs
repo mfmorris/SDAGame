@@ -20,6 +20,7 @@ namespace SDAGame
             this.random = random;
             this.Name = "Cure Light Wounds";
             this.Description = "Heals one ally 5 to 10 hp";
+            this.isDefensive = true;
         }
 
         public override void Resolve(Actor actor, Actor[] targets)

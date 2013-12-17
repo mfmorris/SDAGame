@@ -25,14 +25,14 @@ namespace SDAGame
 
         public Random random { get; private set;}
 
-        public FightScene()
+        public FightScene(params PlayerCharacter[] players)
         {
             actionQueue = new SortedList<int, PendingAction>(10);
-            pcs = new List<PlayerCharacter>();
+            pcs = new List<PlayerCharacter>(players);
             enemies = new List<Enemy>();
             random = new Random();
-            pcs.Add(new Viking());
-            pcs.Add(new Druid());
+
+
 
             MonsterBuilder dm = new MonsterBuilder(this);
         }
