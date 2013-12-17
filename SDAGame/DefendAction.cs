@@ -19,9 +19,9 @@ namespace SDAGame
             this.Description = "Brace for the assault: increases defense.";
         }
 
-        public override void Resolve(Actor actor, Actor[] targets)
+        public override void Resolve(Actor[] targets)
         {
-            actor.AddEffect(new DefendEffect(actor));
+            Owner.AddEffect(new DefendEffect(Owner));
         }
 
     }

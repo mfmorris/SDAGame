@@ -9,19 +9,17 @@ namespace SDAGame
     public class PendingAction
     {
         private Action action;
-        private Actor actor;
         private Actor[] targets;
 
-        public PendingAction(Action action, Actor actor, Actor[] targets)
+        public PendingAction(Action action, Actor[] targets)
         {
-            this.actor = actor;
             this.action = action;
             this.targets = targets;
         }
 
         public void Execute()
         {
-            action.Resolve(actor, targets);
+            action.Resolve(targets);
         }
     }
 }

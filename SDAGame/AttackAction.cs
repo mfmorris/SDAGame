@@ -20,11 +20,11 @@ namespace SDAGame
             this.Description = "This character's standard attack. Damages one enemy.";
         }
 
-        public override void Resolve(Actor actor, Actor[] targets)
+        public override void Resolve(Actor[] targets)
         {
             Actor target = targets[0];
 
-            int attackRoll = actor.ATK + random.Next(20) + 1;
+            int attackRoll = Owner.ATK + random.Next(20) + 1;
             int defenseRoll = target.DEF + random.Next(20) + 1;
 
             int damageDealt = attackRoll - defenseRoll;

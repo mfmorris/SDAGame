@@ -23,7 +23,7 @@ namespace SDAGame
             this.isDefensive = true;
         }
 
-        public override void Resolve(Actor actor, Actor[] targets)
+        public override void Resolve(Actor[] targets)
         {
             Actor target = targets[0];
             target.Heal(random.Next(6) + 5);

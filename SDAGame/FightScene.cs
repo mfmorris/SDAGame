@@ -66,8 +66,9 @@ namespace SDAGame
             }
         }
 
-        public void AddAction(Action action, Actor[] target)
+        public void AddAction(Action action, Actor[] targets, int SPD)
         {
+            actionQueue.Add(SPD, new PendingAction(action, targets));
         }
 
         public void ResolveActions()

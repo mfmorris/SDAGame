@@ -73,6 +73,6 @@ namespace SDAGame
             this.NumTargets = numTargets;
         }
 
-        public abstract void Resolve(Actor actor, Actor[] targets);
+        public abstract void Resolve(Actor[] targets);
     }
 }

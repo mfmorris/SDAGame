@@ -22,13 +22,13 @@ namespace SDAGame
             this.Description = "Damages two foes with a single strike!";
         }
 
-        public override void Resolve(Actor actor, Actor[] targets)
+        public override void Resolve(Actor[] targets)
         {
             for (int i = 0; i < NumTargets; i++)
             {
                 Actor target = targets[i];
 
-                int attackRoll = actor.ATK + random.Next(20)/(i+1) + 1;
+                int attackRoll = Owner.ATK + random.Next(20)/(i+1) + 1;
                 int defenseRoll = target.DEF + random.Next(20) + 1;
 
                 int damageDealt = attackRoll - defenseRoll;
