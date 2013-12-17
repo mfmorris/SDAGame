@@ -20,15 +20,23 @@ namespace SDAGame
     public abstract class Actor
     {
         #region events
+
+        /// <summary>
+        /// Raised when this Actor dies
+        /// </summary>
         public event DeathNotification OnDeath;
 
-        public event DamageNotification OnDamaged;
+        /// <summary>
+        /// Raised when this character takes damage or
+        /// recieves healing and is not already at full health
+        /// </summary>
+        public event DamageNotification OnHealthChanged;
 
-        private void RaiseOnDamaged(int damageTaken)
+        private void RaiseOnHealthChanged(int damageTaken)
         {
-            if (OnDamaged != null)
+            if (OnHealthChanged != null)
             {
-                OnDamaged(this, damageTaken);
+                OnHealthChanged(this, damageTaken);
             }
         }
 
@@ -41,8 +49,14 @@ namespace SDAGame
         }
         #endregion
 
+        /// <summary>
+        /// This Actor's available actions
+        /// </summary>
         public ActionList Actions { get; private set; }
 
+        /// <summary>
+        /// Effects currently affecting this player
+        /// </summary>
         protected EffectList effects;
 
         #region properties
@@ -123,6 +137,15 @@ namespace SDAGame
 
         #endregion
 
+        /// <summary>
+        /// More Readable than if(hp<=0)
+        /// </summary>
+        /// <returns>health <= 0</returns>
+        public bool isDead()
+        {
+            return HP <= 0;
+        }
+
 
         public Actor(string name, string image, string portrait = null)
         {
@@ -149,23 +172,41 @@ namespace SDAGame
             effects.Add(effect);
         }
 
-        public bool TakeDamage(int amount)
+        /// <summary>
+        /// Subtracts an amount from hit points and raises appropriate events.
+        /// </summary>
+        /// <param name="amount"></param>
+        public void TakeDamage(int amount)
         {
-            HP -= amount;
-            if (HP <= 0)
+            if (!isDead())
             {
-                RaiseOnDeath();
-                return true;
+                HP -= amount;
+                if (HP <= 0)
+                {
+                    RaiseOnDeath();
+                }
+                RaiseOnHealthChanged(amount);
             }
-            return false;
         }
 
+        /// <summary>
+        /// Adds an amount from hit points and raises OnHealed
+        /// if the character was not already at full health.
+        /// </summary>
+        /// <param name="amount"></param>
         public void Heal(int amount)
         {
-            HP += amount;
-            if (HP > MaxHP)
+            if (!isDead())
             {
-                HP = MaxHP;
+                if (MaxHP - HP < amount)
+                {
+                    amount = MaxHP - HP;
+                }
+                if(amount > 0)
+                {
+                    HP += amount;
+                    RaiseOnHealthChanged(amount);
+                }
             }
         }
 
