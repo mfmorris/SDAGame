@@ -10,7 +10,7 @@ namespace SDAGame
     {
         private Random random;
 
-        public AttackAction( Random random): base(1)
+        public AttackAction(Random random): base(1)
         {
             this.random = random;
             this.Name = "Attack";

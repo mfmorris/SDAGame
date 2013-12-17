@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CleaveAction.cs" />
     <Compile Include="Druid.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Kobold.cs" />

@@ -9,7 +9,7 @@ namespace SDAGame
     class VikingRageAction : Action
     {
 
-        public VikingRageAction(): base(1)
+        public VikingRageAction(): base(0)
         {
             this.Name = "Viking Rage";
         }

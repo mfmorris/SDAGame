@@ -86,12 +86,8 @@ namespace SDAGame
             {
                 state = TARGET_SELECT;
 
-                StatusLabel.Content = "Select a target.";
-
                 // Update UI
                 SelectAction((ListBoxItem)sender);
-                
-                
             }
         }
 
@@ -107,7 +103,6 @@ namespace SDAGame
                 // Update UI
                 charactersSelected++;
                 UpdateUIWithPC((Image)sender);
-
             }
         }
 
@@ -118,22 +113,38 @@ namespace SDAGame
                 state = CHARACTER_SELECT;
                 if (charactersSelected == totalCharacters)
                 {
-                    StatusLabel.Content = "Select a character.";
                     EndTurn();
                 }
                 else
                 {
-                    
-
                     // Update UI
-                    UpdateUIWithEnemy((Image)sender);
-                    ResetUI();
+                    numberOfTargets--;
+                    if (numberOfTargets <= 0)
+                    {
+                        if (charactersSelected == totalCharacters)
+                        {
+                            EndTurn();
+                        }
+                        else
+                        {
+                            state = CHARACTER_SELECT;
+                            StatusLabel.Content = "Select a character.";
+                            ResetUI();
+                        }
+                    }
+                    else
+                    {
+                        state = TARGET_SELECT;
+                        StatusLabel.Content = "Select " + numberOfTargets + " target.";
+                    }
                 }
             }
         }
 
         private void UpdateUIWithPC(Image image)
         {
+            ResetUI();
+
             string character = image.Name;
 
             if (character == "PlayerCharacter1")
@@ -260,6 +271,23 @@ namespace SDAGame
 
             ActionDescriptionBox.Content = selectedAction.Name + "\nNumber of targets: " + selectedAction.NumTargets;
             numberOfTargets = selectedAction.NumTargets;
+            if (numberOfTargets == 0)
+            {
+                if (charactersSelected == totalCharacters)
+                {
+                    EndTurn();
+                }
+                else
+                {
+                    state = CHARACTER_SELECT; 
+                    StatusLabel.Content = "Select a character.";
+                    ResetUI();
+                }
+            }
+            else
+            {
+                StatusLabel.Content = "Select " + numberOfTargets + " target.";
+            }
         }
 
         private void ResetUI()
@@ -275,6 +303,8 @@ namespace SDAGame
             WisdomValue.Content = "";
             SpeedValue.Content = "";
             DefenseValue.Content = "";
+
+            ActionListBox.SelectedIndex = -1;
 
             ActionItem1.Content = "";
             ActionItem1.Visibility = Visibility.Hidden;
@@ -292,6 +322,10 @@ namespace SDAGame
 
         private void EndTurn()
         {
+            StatusLabel.Content = "Select a character.";
+
+            state = CHARACTER_SELECT;
+            
             ResetUI();
 
             charactersSelected = 0;
