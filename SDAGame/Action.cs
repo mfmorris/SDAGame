@@ -26,7 +26,7 @@ namespace SDAGame
         public bool isDefensive
         {
             get;
-            private set;
+            protected set;
         }
 
         public virtual string Name

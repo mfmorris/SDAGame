@@ -56,7 +56,7 @@
     <Compile Include="CleaveAction.cs" />
     <Compile Include="Druid.cs" />
     <Compile Include="Enemy.cs" />
-    <Compile Include="HealAction.cs" />
+    <Compile Include="CureLightAction.cs" />
     <Compile Include="Kobold.cs" />
     <Compile Include="RandomAI.cs" />
     <Compile Include="Viking.cs" />
