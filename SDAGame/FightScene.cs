@@ -12,7 +12,8 @@ namespace SDAGame
 
         #region events
         public event DeathNotification OnActorDeath;
-        public event DamageNotification OnActorDamaged;
+
+        public event DamageNotification OnActorHealthChanged;
 
         private void RaiseOnActorDeath(Actor deadGuy)
         {
@@ -22,11 +23,11 @@ namespace SDAGame
             }
         }
 
-        private void RaiseOnActorDamaged(Actor sender, int damageTaken)
+        private void RaiseOnActorHealthChanged(Actor sender, int damageTaken)
         {
-            if (OnActorDamaged != null)
+            if (OnActorHealthChanged != null)
             {
-                OnActorDamaged(sender, damageTaken);
+                OnActorHealthChanged(sender, damageTaken);
             }
         }
 
@@ -61,7 +62,7 @@ namespace SDAGame
             //subscribe to events so they can be forwarded
             foreach(Enemy ankleBiter in Enemies)
             {
-                ankleBiter.OnDamaged += RaiseOnActorDamaged;
+                ankleBiter.OnHealthChanged += RaiseOnActorHealthChanged;
                 ankleBiter.OnDeath += RaiseOnActorDeath;
             }
         }
@@ -73,6 +74,10 @@ namespace SDAGame
 
         public void ResolveActions()
         {
+            for (int i = actionQueue.Count - 1; i >= 0; ++i)
+            {
+                actionQueue[i].Execute();
+            }
             actionQueue.Clear();
         }
 
