@@ -66,12 +66,19 @@ namespace SDAGame
             set;
         }
 
+        public virtual int SPDMod
+        {
+            get;
+            set;
+        }
+
         #endregion
 
         public Action(Actor owner, int numTargets)
         {
             this.NumTargets = numTargets;
             this.Owner = owner;
+            this.SPDMod = 0;
         }
 
         public abstract void Resolve(Actor[] targets);

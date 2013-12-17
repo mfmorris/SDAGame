@@ -12,19 +12,11 @@ namespace SDAGame
         private List<Action> liveActions = new List<Action>();
 
         private Random random = new Random();
-        private FightScene scene;
         private List<PlayerCharacter> pcs;
 
         public MonsterBuilder(List<PlayerCharacter> pcs)
         {
             this.pcs = pcs;
-        }
-
-        public Enemy GetKobold()
-        {
-            Kobold kob = new Kobold();
-            kob.setAI(new RandomAI(scene.Enemies, scene.PCS));
-            return kob;
         }
 
         public List<Enemy> GetEncounter()

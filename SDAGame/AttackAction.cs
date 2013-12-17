@@ -26,9 +26,9 @@ namespace SDAGame
             Actor target = targets[0];
 
             int attackRoll = Owner.ATK + random.Next(20) + 1;
-            int defenseRoll = target.DEF + random.Next(20) + 1;
+            //int defenseRoll = target.DEF + random.Next(20) + 1;
 
-            int damageDealt = attackRoll - defenseRoll;
+            int damageDealt = attackRoll - target.DEF;
 
             if (damageDealt > 0)
             {

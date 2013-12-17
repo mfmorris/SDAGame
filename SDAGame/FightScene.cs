@@ -68,6 +68,12 @@ namespace SDAGame
                 ankleBiter.OnHealthChanged += RaiseOnActorHealthChanged;
                 ankleBiter.OnDeath += RaiseOnActorDeath;
             }
+
+            foreach(PlayerCharacter pc in PCS)
+            {
+                pc.OnHealthChanged += RaiseOnActorHealthChanged;
+                pc.OnDeath += RaiseOnActorDeath;
+            }
         }
 
         public void AddAction(Action action, Actor[] targets, int SPD)
