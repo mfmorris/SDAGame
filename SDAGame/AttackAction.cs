@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDAGame
 {
+    /// <summary>
+    /// Action that invokes the standard attack of the actor using it.
+    /// </summary>
     class AttackAction : Action
     {
         private Random random;
@@ -14,6 +17,7 @@ namespace SDAGame
         {
             this.random = random;
             this.Name = "Attack";
+            this.Description = "This character's standard attack. Damages one enemy.";
         }
 
         public override void Resolve(Actor actor, Actor[] targets)

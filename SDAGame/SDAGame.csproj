@@ -56,6 +56,7 @@
     <Compile Include="CleaveAction.cs" />
     <Compile Include="Druid.cs" />
     <Compile Include="Enemy.cs" />
+    <Compile Include="HealAction.cs" />
     <Compile Include="Kobold.cs" />
     <Compile Include="RandomAI.cs" />
     <Compile Include="Viking.cs" />
@@ -75,8 +76,8 @@
     <Compile Include="EffectList.cs" />
     <Compile Include="EnemyAI.cs" />
     <Compile Include="FightScene.cs" />
-    <Compile Include="IAction.cs" />
-    <Compile Include="IEffect.cs" />
+    <Compile Include="Action.cs" />
+    <Compile Include="Effect.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

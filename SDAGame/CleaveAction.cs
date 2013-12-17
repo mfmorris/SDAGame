@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace SDAGame
 {
+    /// <summary>
+    /// Represents Viking's Cleave, an action that damages two foes.
+    /// The first attack is at full power, the second is at half.
+    /// </summary>
     class CleaveAction : Action
     {
         private Random random;
@@ -15,6 +19,7 @@ namespace SDAGame
         {
             this.random = random;
             this.Name = "Cleave";
+            this.Description = "Damages two foes with a single strike!";
         }
 
         public override void Resolve(Actor actor, Actor[] targets)

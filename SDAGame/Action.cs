@@ -35,6 +35,12 @@ namespace SDAGame
             protected set;
         }
 
+        public virtual string Description
+        {
+            get;
+            protected set;
+        }
+
         public virtual bool Enabled
         {
             get;
