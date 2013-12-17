@@ -120,7 +120,7 @@ namespace SDAGame
             if (state == TARGET_SELECT)
             {
                 state = CHARACTER_SELECT;
-                if (charactersSelected == totalCharacters)
+                if (charactersSelected == totalCharacters && numberOfTargets <= 0)
                 {
                     EndTurn();
                 }
