@@ -16,10 +16,10 @@ namespace SDAGame
             BaseSPD = 8;
             BaseWIS = 5;
 
-            Actions.Add(new AttackAction(new Random()));
-            Actions.Add(new DefendAction());
-            Actions.Add(new VikingRageAction());
-            Actions.Add(new CleaveAction(2, new Random()));
+            Actions.Add(new AttackAction(this));
+            Actions.Add(new DefendAction(this));
+            Actions.Add(new VikingRageAction(this));
+            Actions.Add(new CleaveAction(this, 2));
         }
     }
 }

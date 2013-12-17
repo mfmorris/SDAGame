@@ -14,10 +14,10 @@ namespace SDAGame
     {
         private Random random;
 
-        public CureLightAction(Random random)
-            : base(1)
+        public CureLightAction(Actor owner)
+            : base(owner, 1)
         {
-            this.random = random;
+            this.random = FightScene.Random;
             this.Name = "Cure Light Wounds";
             this.Description = "Heals one ally 5 to 10 hp";
             this.isDefensive = true;

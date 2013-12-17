@@ -14,10 +14,10 @@ namespace SDAGame
     {
         private Random random;
 
-        public CleaveAction(int numTargets, Random random)
-            : base(numTargets)
+        public CleaveAction(Actor owner, int numTargets)
+            : base(owner, numTargets)
         {
-            this.random = random;
+            this.random = FightScene.Random;
             this.Name = "Cleave";
             this.Description = "Damages two foes with a single strike!";
         }

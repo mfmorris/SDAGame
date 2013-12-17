@@ -6,43 +6,36 @@ using System.Threading.Tasks;
 
 namespace SDAGame
 {
-    public class EffectList
+    public class EffectList : List<Effect>
     {
-        private List<Effect> effects;
-
-        public EffectList()
+        public new void Add(Effect effect)
         {
-            effects = new List<Effect>();
-        }
-
-        public void Add(Effect effect)
-        {
-            if ((effects.Count(e => e.Name == effect.Name) > 0) && !effect.CanStack)
+            if ((this.Count(e => e.Name == effect.Name) > 0) && !effect.CanStack)
             {
                 return;
             }
-            effects.Add(effect);
+            base.Add(effect);
         }
 
         public void Remove(string name)
         {
-            foreach (Effect effect in effects)
+            foreach (Effect effect in this)
             {
                 if (effect.Name == name)
                 {
-                    effects.Remove(effect);
+                    this.Remove(effect);
                 }
             }
         }
 
         public void Update(int delta = 1)
         {
-            foreach (Effect effect in effects)
+            foreach (Effect effect in this)
             {
                 effect.Update();
                 if (effect.Finished)
                 {
-                    effects.Remove(effect);
+                    this.Remove(effect);
                 }
             }
         }

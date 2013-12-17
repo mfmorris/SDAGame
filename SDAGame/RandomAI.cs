@@ -11,10 +11,10 @@ namespace SDAGame
         private Random random;
 
         public RandomAI(List<Enemy> enemies,
-            List<PlayerCharacter> players, Random random)
+            List<PlayerCharacter> players)
             : base(enemies, players)
         {
-            this.random = random;
+            this.random = FightScene.Random;
         }
 
         public override PendingAction Act()

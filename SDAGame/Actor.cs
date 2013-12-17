@@ -20,9 +20,25 @@ namespace SDAGame
     public abstract class Actor
     {
         #region events
-        event DeathNotification OnDeath;
+        public event DeathNotification OnDeath;
 
-        event DamageNotification OnDamaged;
+        public event DamageNotification OnDamaged;
+
+        private void RaiseOnDamaged(int damageTaken)
+        {
+            if (OnDamaged != null)
+            {
+                OnDamaged(this, damageTaken);
+            }
+        }
+
+        private void RaiseOnDeath()
+        {
+            if (OnDeath != null)
+            {
+                OnDeath(this);
+            }
+        }
         #endregion
 
         public ActionList Actions { get; private set; }
@@ -107,21 +123,6 @@ namespace SDAGame
 
         #endregion
 
-        private void RaiseOnDamaged(int damageTaken)
-        {
-            if (OnDamaged != null)
-            {
-                OnDamaged(this, damageTaken);
-            }
-        }
-
-        private void RaiseOnDeath()
-        {
-            if (OnDeath != null)
-            {
-                OnDeath(this);
-            }
-        }
 
         public Actor(string name, string image, string portrait = null)
         {

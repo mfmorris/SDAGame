@@ -9,33 +9,73 @@ namespace SDAGame
 
     public class FightScene
     {
+
+        #region events
+        public event DeathNotification OnActorDeath;
+        public event DamageNotification OnActorDamaged;
+
+        private void RaiseOnActorDeath(Actor deadGuy)
+        {
+            if (OnActorDeath != null)
+            {
+                OnActorDeath(deadGuy);
+            }
+        }
+
+        private void RaiseOnActorDamaged(Actor sender, int damageTaken)
+        {
+            if (OnActorDamaged != null)
+            {
+                OnActorDamaged(sender, damageTaken);
+            }
+        }
+
+        #endregion
+
         System.Collections.Generic.SortedList<int,PendingAction> actionQueue;
 
-        public List<PlayerCharacter> pcs
+        public List<PlayerCharacter> PCS
         {
             get;
             private set;
         }
 
-        public List<Enemy> enemies
+        public List<Enemy> Enemies
         {
             get;
             private set;
         }
 
-        public Random random { get; private set;}
+        public static Random Random = new Random();
 
         public FightScene(params PlayerCharacter[] players)
         {
+            //set up data
             actionQueue = new SortedList<int, PendingAction>(10);
-            pcs = new List<PlayerCharacter>(players);
-            enemies = new List<Enemy>();
-            random = new Random();
+            PCS = new List<PlayerCharacter>(players);
 
+            //get some monsters
+            MonsterBuilder dungeonMaster = new MonsterBuilder(PCS);
+            Enemies = dungeonMaster.GetEncounter();
 
-
-            MonsterBuilder dm = new MonsterBuilder(this);
+            //subscribe to events so they can be forwarded
+            foreach(Enemy ankleBiter in Enemies)
+            {
+                ankleBiter.OnDamaged += RaiseOnActorDamaged;
+                ankleBiter.OnDeath += RaiseOnActorDeath;
+            }
         }
+
+        public void AddAction(Action action, Actor[] target)
+        {
+
+        }
+
+        public void ResolveActions()
+        {
+            actionQueue.Clear();
+        }
+
     }
 
 }

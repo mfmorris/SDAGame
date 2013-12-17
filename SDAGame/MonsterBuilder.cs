@@ -13,17 +13,33 @@ namespace SDAGame
 
         private Random random = new Random();
         private FightScene scene;
+        private List<PlayerCharacter> pcs;
 
-        public MonsterBuilder(FightScene scene)
+        public MonsterBuilder(List<PlayerCharacter> pcs)
         {
-            this.scene = scene;
+            this.pcs = pcs;
         }
 
         public Enemy GetKobold()
         {
             Kobold kob = new Kobold();
-            kob.setAI(new RandomAI(scene.enemies, scene.pcs, scene.random));
+            kob.setAI(new RandomAI(scene.Enemies, scene.PCS));
             return kob;
+        }
+
+        public List<Enemy> GetEncounter()
+        {
+            List<Enemy> monsters = new List<Enemy>(3);
+            
+            for(int i = 0; i < 3; ++i)
+            {
+                Kobold kob = new Kobold();
+                kob.setAI(new RandomAI(monsters, pcs));
+                monsters.Add(kob);
+            }
+
+            return monsters;
+
         }
     }
 }

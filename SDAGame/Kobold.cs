@@ -8,6 +8,7 @@ namespace SDAGame
 {
     class Kobold : Enemy
     {
+
         public Kobold(string name = "Kobold", string imageName = "\\kobold.png", string portraitName = null)
             :base(name, imageName, portraitName)
         {
@@ -17,8 +18,8 @@ namespace SDAGame
             BaseSPD = 8;
             BaseWIS = 5;
 
-            AddAction(new AttackAction(new Random()));
-            AddAction(new DefendAction());
+            AddAction(new AttackAction(this));
+            AddAction(new DefendAction(this));
         }
     }
 }
