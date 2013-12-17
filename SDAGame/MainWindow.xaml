@@ -1,0 +1,105 @@
+﻿<Window x:Class="SDAGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="A Game by Matt &amp; Jake" Height="720" Width="1080" Cursor="Hand" ResizeMode="NoResize">
+    <Grid>
+        <Canvas HorizontalAlignment="Left" Height="520" VerticalAlignment="Top" Width="1074" x:Name="BattleCanvas">
+            <Canvas.Background>
+                <ImageBrush x:Name="BattleBackgroundBrush" ImageSource="temple_full.png">
+
+                </ImageBrush>
+            </Canvas.Background>
+            <Image x:Name="PlayerCharacter5" Height="99" Canvas.Left="129" Width="100" Canvas.Top="5" Stretch="None" MouseLeftButtonUp="PlayerCharacter_MouseUp">
+                <Image.Effect>
+                    <DropShadowEffect/>
+                </Image.Effect>
+            </Image>
+            <Image x:Name="PlayerCharacter3" Height="99" Canvas.Left="129" Width="100" Canvas.Top="109" MouseLeftButtonUp="PlayerCharacter_MouseUp">
+                <Image.Effect>
+                    <DropShadowEffect/>
+                </Image.Effect>
+            </Image>
+            <Image x:Name="PlayerCharacter1" Height="99" Canvas.Left="129" Width="100" Canvas.Top="213" MouseLeftButtonUp="PlayerCharacter_MouseUp">
+                <Image.Effect>
+                    <DropShadowEffect/>
+                </Image.Effect>
+            </Image>
+            <Image x:Name="PlayerCharacter2" Height="99" Canvas.Left="129" Width="100" Canvas.Top="317" MouseLeftButtonUp="PlayerCharacter_MouseUp">
+                <Image.Effect>
+                    <DropShadowEffect/>
+                </Image.Effect>
+            </Image>
+            <Image x:Name="PlayerCharacter4" Height="99" Canvas.Left="129" Width="100" Canvas.Top="421" MouseLeftButtonUp="PlayerCharacter_MouseUp">
+                <Image.Effect>
+                    <DropShadowEffect/>
+                </Image.Effect>
+            </Image>
+            <Image x:Name="EnemyCharacter5" Height="99" Canvas.Left="837" Width="100" Canvas.Top="5" MouseLeftButtonUp="Enemy_MouseUp">
+                <Image.Effect>
+                    <DropShadowEffect/>
+                </Image.Effect>
+            </Image>
+            <Image x:Name="EnemyCharacter3" Height="99" Canvas.Left="837" Width="100" Canvas.Top="109" MouseLeftButtonUp="Enemy_MouseUp">
+                <Image.Effect>
+                    <DropShadowEffect/>
+                </Image.Effect>
+            </Image>
+            <Image x:Name="EnemyCharacter1" Height="99" Canvas.Left="837" Width="100" Canvas.Top="213" MouseLeftButtonUp="Enemy_MouseUp">
+                <Image.Effect>
+                    <DropShadowEffect/>
+                </Image.Effect>
+            </Image>
+            <Image x:Name="EnemyCharacter2" Height="99" Canvas.Left="837" Width="100" Canvas.Top="317" MouseLeftButtonUp="Enemy_MouseUp">
+                <Image.Effect>
+                    <DropShadowEffect/>
+                </Image.Effect>
+            </Image>
+            <Image x:Name="EnemyCharacter4" Height="99" Canvas.Left="837" Width="100" Canvas.Top="421" MouseLeftButtonUp="Enemy_MouseUp">
+                <Image.Effect>
+                    <DropShadowEffect/>
+                </Image.Effect>
+            </Image>
+            <Rectangle x:Name="EnemyHealthBar5" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="94" Width="100" Visibility="Hidden"/>
+            <Rectangle x:Name="EnemyHealthBar3" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="198" Width="100" Visibility="Hidden"/>
+            <Rectangle x:Name="EnemyHealthBar1" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="302" Width="100" Visibility="Hidden"/>
+            <Rectangle x:Name="EnemyHealthBar2" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="406" Width="100" Visibility="Hidden"/>
+            <Rectangle x:Name="EnemyHealthBar4" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="510" Width="100" Visibility="Hidden"/>
+            <Rectangle x:Name="PCHealthBar5" Fill="#FFA80000" Stroke="Black" Height="10" Canvas.Left="129" Canvas.Top="94" Width="100" Visibility="Hidden"/>
+            <Rectangle x:Name="PCHealthBar3" Fill="#FFA80000" Stroke="Black" Height="10" Canvas.Left="129" Canvas.Top="198" Width="100" Visibility="Hidden"/>
+            <Rectangle x:Name="PCHealthBar1" Fill="#FFA80000" Stroke="Black" Height="10" Canvas.Left="129" Canvas.Top="302" Width="100" Visibility="Hidden"/>
+            <Rectangle x:Name="PCHealthBar2" Fill="#FFA80000" Stroke="Black" Height="10" Canvas.Left="129" Canvas.Top="406" Width="100" Visibility="Hidden"/>
+            <Rectangle x:Name="PCHealthBar4" Fill="#FFA80000" Stroke="Black" Height="10" Canvas.Left="129" Canvas.Top="510" Width="100" Visibility="Hidden"/>
+            <Label x:Name="StatusLabel" Content="" Canvas.Left="234" Canvas.Top="10" Height="80" Width="598" Foreground="#FF890000" FontWeight="Bold" FontStretch="Expanded" FontFamily="Copperplate Gothic Bold" FontSize="16"/>
+        </Canvas>
+        <ListBox HorizontalAlignment="Left" Height="172" Margin="358,520,0,0" VerticalAlignment="Top" Width="358" x:Name="ActionListBox">
+            <ListBoxItem x:Name="ActionItem1" Content="" Selected="ActionItem_Selected" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            <ListBoxItem x:Name="ActionItem2" Content="" Selected="ActionItem_Selected" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            <ListBoxItem x:Name="ActionItem3" Content="" Selected="ActionItem_Selected" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            <ListBoxItem x:Name="ActionItem4" Content="" Selected="ActionItem_Selected" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            <ListBoxItem x:Name="ActionItem5" Content="" Selected="ActionItem_Selected" VerticalContentAlignment="Center" Visibility="Hidden"/>
+        </ListBox>
+        <Grid HorizontalAlignment="Left" Height="172" Margin="0,520,0,0" VerticalAlignment="Top" Width="358">
+            <Image HorizontalAlignment="Left" Height="50" Margin="43,112,0,0" VerticalAlignment="Top" Width="50" x:Name="ItemSlot1"/>
+            <Image HorizontalAlignment="Left" Height="50" Margin="98,112,0,0" VerticalAlignment="Top" Width="50" x:Name="ItemSlot2"/>
+            <Image HorizontalAlignment="Left" Height="50" Margin="153,112,0,0" VerticalAlignment="Top" Width="50" x:Name="ItemSlot3"/>
+            <Image HorizontalAlignment="Left" Height="50" Margin="208,112,0,0" VerticalAlignment="Top" Width="50" x:Name="ItemSlot4"/>
+            <Image HorizontalAlignment="Left" Height="50" Margin="263,112,0,0" VerticalAlignment="Top" Width="50" x:Name="ItemSlot5"/>
+            <Label Content="HP:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label Content="" HorizontalAlignment="Left" Margin="263,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.605,0.613" x:Name="NameValue" Width="89"/>
+            <Label Content="ATK:" HorizontalAlignment="Left" Margin="0,26,0,0" VerticalAlignment="Top"/>
+            <Label Content="WIS:" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top" Cursor=""/>
+            <Label Content="DEF:" HorizontalAlignment="Left" Margin="153,26,0,0" VerticalAlignment="Top"/>
+            <Label Content="SPD:" HorizontalAlignment="Left" Margin="153,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.176,-1.709"/>
+            <Label Content="" HorizontalAlignment="Left" Margin="43,0,0,0" VerticalAlignment="Top" x:Name="HealthValue"/>
+            <Label Content="" HorizontalAlignment="Left" Margin="43,26,0,0" VerticalAlignment="Top" x:Name="AttackValue"/>
+            <Label Content="" HorizontalAlignment="Left" Margin="43,52,0,0" VerticalAlignment="Top" x:Name="WisdomValue"/>
+            <Label Content="" HorizontalAlignment="Left" Margin="196,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.554,0.881" x:Name="SpeedValue"/>
+            <Label Content="" HorizontalAlignment="Left" Margin="196,26,0,0" VerticalAlignment="Top" x:Name="DefenseValue"/>
+            <Label Content="/" HorizontalAlignment="Left" Margin="81,0,0,0" VerticalAlignment="Top"/>
+            <Label Content="" HorizontalAlignment="Left" Margin="96,0,0,0" VerticalAlignment="Top" x:Name="MaxHealthValue"/>
+            <Image HorizontalAlignment="Left" Height="65" Margin="285,26,0,0" VerticalAlignment="Top" Width="65"/>
+        </Grid>
+        <Label x:Name="ActionDescriptionBox" Content="" HorizontalAlignment="Left" Margin="716,520,0,0" VerticalAlignment="Top" Height="172" Width="358"/>
+
+    </Grid>
+</Window>
