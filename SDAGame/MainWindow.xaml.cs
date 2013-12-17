@@ -85,10 +85,6 @@ namespace SDAGame
             StatusLabel.Content = "Select a character.";
         }
 
-        private void KillActor(Actor deadGuy)
-        {
-        }
-
         private void ActionItem_Selected(object sender, RoutedEventArgs e)
         {
             // Select an action
@@ -411,6 +407,57 @@ namespace SDAGame
                 else if (actor == fightScene.Enemies[4])
                 {
                     EnemyHealthBar5.Width = ((double)fightScene.Enemies[4].HP / (double)fightScene.Enemies[4].MaxHP) * 100;
+                }
+            }
+        }
+
+        private void KillActor(Actor actor)
+        {
+            if (actor is PlayerCharacter)
+            {
+                if (actor == pc1)
+                {
+                    PlayerCharacter1.Source = null;
+                }
+                else if (actor == pc2)
+                {
+                    PlayerCharacter2.Source = null;
+                }
+                else if (actor == pc3)
+                {
+                    PlayerCharacter3.Source = null;
+                }
+                else if (actor == pc4)
+                {
+                    PlayerCharacter4.Source = null;
+                }
+                else if (actor == pc5)
+                {
+                    PlayerCharacter5.Source = null;
+                }
+
+            }
+            else if (actor is Enemy)
+            {
+                if (actor == fightScene.Enemies[0])
+                {
+                    EnemyCharacter1.Source = null;
+                }
+                else if (actor == fightScene.Enemies[1])
+                {
+                    EnemyCharacter2.Source = null;
+                }
+                else if (actor == fightScene.Enemies[2])
+                {
+                    EnemyCharacter3.Source = null;
+                }
+                else if (actor == fightScene.Enemies[3])
+                {
+                    EnemyCharacter4.Source = null;
+                }
+                else if (actor == fightScene.Enemies[4])
+                {
+                    EnemyCharacter5.Source = null;
                 }
             }
         }
