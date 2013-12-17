@@ -15,9 +15,9 @@ namespace SDAGame
             this.Description = "Fly into a Berserker's fury.\nincreases attack\nDuration: 3 rounds";
         }
 
-        public override void Resolve(Actor actor, Actor[] targets)
+        public override void Resolve(Actor[] targets)
         {
-            actor.AddEffect(new RageEffect(actor));
+            Owner.AddEffect(new RageEffect(Owner));
         }
     }
 }
