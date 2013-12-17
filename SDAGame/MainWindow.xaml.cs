@@ -15,6 +15,14 @@ using System.Windows.Shapes;
 
 namespace SDAGame
 {
+
+    struct ActorUIElement
+    {
+        public Actor Actor;
+        public Image Image;
+        public Rectangle HealthBar;
+        //...
+    }
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -43,11 +51,7 @@ namespace SDAGame
 
         List<Enemy> actionTargets;
 
-        //Enemy enemy1 = null;
-        //Enemy enemy2 = null;
-        //Enemy enemy3 = null;
-        //Enemy enemy4 = null;
-        //Enemy enemy5 = null;
+        ActorUIElement[] enemies = new ActorUIElement[5];
         
         public MainWindow()
         {
@@ -68,19 +72,30 @@ namespace SDAGame
             fightScene.OnActorHealthChanged += UpdateActor;
             fightScene.OnActorDeath += KillActor;
 
-            // Generate Enemies
-            //enemy1 = fightScene.Enemies[0];
-            EnemyCharacter1.Source = fightScene.Enemies[0].image;
-            EnemyHealthBar1.Visibility = Visibility.Visible;
+            // Get and Setup Enemies
+            enemies[0].Image = EnemyCharacter1;
+            enemies[0].HealthBar = EnemyHealthBar1;
 
-            //enemy2 = fightScene.Enemies[1];
-            EnemyCharacter2.Source = fightScene.Enemies[1].image;
-            EnemyHealthBar2.Visibility = Visibility.Visible;
+            enemies[1].Image = EnemyCharacter2;
+            enemies[1].HealthBar = EnemyHealthBar2;
 
-            //enemy3 = fightScene.Enemies[2];
-            EnemyCharacter3.Source = fightScene.Enemies[2].image;
-            EnemyHealthBar3.Visibility = Visibility.Visible;
+            enemies[2].Image = EnemyCharacter3;
+            enemies[2].HealthBar = EnemyHealthBar3;
 
+            enemies[3].Image = EnemyCharacter4;
+            enemies[3].HealthBar = EnemyHealthBar4;
+
+            enemies[4].Image = EnemyCharacter5;
+            enemies[4].HealthBar = EnemyHealthBar5;
+
+            for (int i = 0; i < fightScene.Enemies.Count; i++)
+            {
+                enemies[i].Actor = fightScene.Enemies[i];
+                enemies[i].Image.Source = fightScene.Enemies[i].image;
+                enemies[i].HealthBar.Visibility = Visibility.Visible;
+            }
+
+            // Set start state and begin
             state = CHARACTER_SELECT;
             StatusLabel.Content = "Select a character.";
         }
@@ -388,25 +403,23 @@ namespace SDAGame
             }
             else if (actor is Enemy)
             {
-                if (actor == fightScene.Enemies[0])
+                double width;
+                for (int i = 0; i < 5; i++)
                 {
-                    EnemyHealthBar1.Width = ((double)fightScene.Enemies[0].HP / (double)fightScene.Enemies[0].MaxHP) * 100;
-                }
-                else if (actor == fightScene.Enemies[1])
-                {
-                    EnemyHealthBar2.Width = ((double)fightScene.Enemies[1].HP / (double)fightScene.Enemies[1].MaxHP) * 100;
-                }
-                else if (actor == fightScene.Enemies[2])
-                {
-                    EnemyHealthBar3.Width =( (double)fightScene.Enemies[2].HP / (double)fightScene.Enemies[2].MaxHP) * 100;
-                }
-                else if (actor == fightScene.Enemies[3])
-                {
-                    EnemyHealthBar4.Width = ( (double)fightScene.Enemies[3].HP / (double)fightScene.Enemies[3].MaxHP) * 100;
-                }
-                else if (actor == fightScene.Enemies[4])
-                {
-                    EnemyHealthBar5.Width = ((double)fightScene.Enemies[4].HP / (double)fightScene.Enemies[4].MaxHP) * 100;
+                    if (actor == enemies[i].Actor)
+                    {
+                        width = ((double)enemies[i].Actor.HP / (double)enemies[i].Actor.MaxHP) * 100;
+                        if (width > 0)
+                        {
+                            enemies[i].HealthBar.Width = width;
+                        }
+                        else
+                        {
+                            enemies[i].HealthBar.Width = 100;
+                            enemies[i].HealthBar.Visibility = Visibility.Hidden;
+                        }
+                        break;
+                    }
                 }
             }
         }
