@@ -9,7 +9,7 @@ namespace SDAGame
     class VikingRageAction : Action
     {
 
-        public VikingRageAction(): base(0)
+        public VikingRageAction(Actor owner): base(owner, 0)
         {
             this.Name = "Viking Rage";
             this.Description = "Fly into a Berserker's fury.\nincreases attack\nDuration: 3 rounds";

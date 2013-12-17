@@ -13,7 +13,7 @@ namespace SDAGame
     public class DefendAction : Action
     {
 
-        public DefendAction() : base(0)
+        public DefendAction(Actor owner) : base(owner, 0)
         {
             this.Name = "Defend";
             this.Description = "Brace for the assault: increases defense.";

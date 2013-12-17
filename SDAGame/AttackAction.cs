@@ -13,9 +13,9 @@ namespace SDAGame
     {
         private Random random;
 
-        public AttackAction(Random random): base(1)
+        public AttackAction(Actor owner): base(owner, 1)
         {
-            this.random = random;
+            this.random = FightScene.Random;
             this.Name = "Attack";
             this.Description = "This character's standard attack. Damages one enemy.";
         }
