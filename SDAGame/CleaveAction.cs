@@ -20,6 +20,7 @@ namespace SDAGame
             this.random = FightScene.Random;
             this.Name = "Cleave";
             this.Description = "Damages two foes with a single strike!";
+            this.Enabled = true;
         }
 
         public override void Resolve(Actor[] targets)

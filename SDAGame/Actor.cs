@@ -54,16 +54,14 @@ namespace SDAGame
         /// </summary>
         public ActionList Actions { get; private set; }
 
+        #region properties
+
         /// <summary>
         /// Effects currently affecting this player
         /// </summary>
-        protected EffectList effects;
-
-        #region properties
+        public EffectList Effects { get; protected set; }
 
         public BitmapImage image { get; private set; }
-
-        public string imageName { get; private set; }
 
         public string portraitName { get; private set; }
 
@@ -147,19 +145,19 @@ namespace SDAGame
         }
 
 
-        public Actor(string name, string image, string portrait = null)
+        public Actor(string name, string imageName, string portrait = null)
         {
             this.Name = name;
-            this.imageName = image;
-            this.image = new BitmapImage(new Uri(image, UriKind.Relative));
-            this.portraitName = portrait ?? image;
+            this.image = new BitmapImage(new Uri(imageName, UriKind.Relative));
+            this.portraitName = portrait ?? imageName;
 
             Actions = new ActionList();
+            Effects = new EffectList();
         }
 
         public virtual void Update()
         {
-            effects.Update();
+            Effects.Update();
         }
 
         public void AddAction(Action action)
@@ -169,7 +167,7 @@ namespace SDAGame
 
         public void AddEffect(Effect effect)
         {
-            effects.Add(effect);
+            Effects.Add(effect);
         }
 
         /// <summary>
@@ -181,11 +179,11 @@ namespace SDAGame
             if (!isDead())
             {
                 HP -= amount;
+                RaiseOnHealthChanged(amount);
                 if (HP <= 0)
                 {
                     RaiseOnDeath();
                 }
-                RaiseOnHealthChanged(amount);
             }
         }
 

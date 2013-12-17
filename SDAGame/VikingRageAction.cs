@@ -13,6 +13,7 @@ namespace SDAGame
         {
             this.Name = "Viking Rage";
             this.Description = "Fly into a Berserker's fury.\nincreases attack\nDuration: 3 rounds";
+            this.Enabled = true;
         }
 
         public override void Resolve(Actor[] targets)

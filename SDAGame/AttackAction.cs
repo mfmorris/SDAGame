@@ -18,6 +18,7 @@ namespace SDAGame
             this.random = FightScene.Random;
             this.Name = "Attack";
             this.Description = "This character's standard attack. Damages one enemy.";
+            this.Enabled = true;
         }
 
         public override void Resolve(Actor[] targets)

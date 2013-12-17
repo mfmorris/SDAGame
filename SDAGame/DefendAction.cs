@@ -17,6 +17,8 @@ namespace SDAGame
         {
             this.Name = "Defend";
             this.Description = "Brace for the assault: increases defense.";
+            this.isDefensive = true;
+            this.Enabled = true;
         }
 
         public override void Resolve(Actor[] targets)

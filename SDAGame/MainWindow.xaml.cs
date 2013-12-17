@@ -65,6 +65,8 @@ namespace SDAGame
             totalCharacters = 2;
 
             fightScene = new FightScene(pc1, pc2);
+            fightScene.OnActorHealthChanged += UpdateActor;
+            fightScene.OnActorDeath += KillActor;
 
             // Generate Enemies
             //enemy1 = fightScene.Enemies[0];
@@ -81,6 +83,10 @@ namespace SDAGame
 
             state = CHARACTER_SELECT;
             StatusLabel.Content = "Select a character.";
+        }
+
+        private void KillActor(Actor deadGuy)
+        {
         }
 
         private void ActionItem_Selected(object sender, RoutedEventArgs e)
@@ -358,7 +364,7 @@ namespace SDAGame
             }
         }
 
-        public void UpdateActor(Actor actor)
+        public void UpdateActor(Actor actor, int damageTaken)
         {
             if (actor is PlayerCharacter)
             {
@@ -388,23 +394,23 @@ namespace SDAGame
             {
                 if (actor == fightScene.Enemies[0])
                 {
-                    EnemyHealthBar1.Width = fightScene.Enemies[0].HP / fightScene.Enemies[0].MaxHP * 100;
+                    EnemyHealthBar1.Width = ((double)fightScene.Enemies[0].HP / (double)fightScene.Enemies[0].MaxHP) * 100;
                 }
                 else if (actor == fightScene.Enemies[1])
                 {
-                    EnemyHealthBar2.Width = fightScene.Enemies[1].HP / fightScene.Enemies[1].MaxHP * 100;
+                    EnemyHealthBar2.Width = ((double)fightScene.Enemies[1].HP / (double)fightScene.Enemies[1].MaxHP) * 100;
                 }
                 else if (actor == fightScene.Enemies[2])
                 {
-                    EnemyHealthBar3.Width = fightScene.Enemies[2].HP / fightScene.Enemies[2].MaxHP * 100;
+                    EnemyHealthBar3.Width =( (double)fightScene.Enemies[2].HP / (double)fightScene.Enemies[2].MaxHP) * 100;
                 }
                 else if (actor == fightScene.Enemies[3])
                 {
-                    EnemyHealthBar4.Width = fightScene.Enemies[3].HP / fightScene.Enemies[3].MaxHP * 100;
+                    EnemyHealthBar4.Width = ( (double)fightScene.Enemies[3].HP / (double)fightScene.Enemies[3].MaxHP) * 100;
                 }
                 else if (actor == fightScene.Enemies[4])
                 {
-                    EnemyHealthBar5.Width = fightScene.Enemies[4].HP / fightScene.Enemies[4].MaxHP * 100;
+                    EnemyHealthBar5.Width = ((double)fightScene.Enemies[4].HP / (double)fightScene.Enemies[4].MaxHP) * 100;
                 }
             }
         }

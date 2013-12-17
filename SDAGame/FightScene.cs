@@ -10,6 +10,8 @@ namespace SDAGame
     public class FightScene
     {
 
+        public static Random Random = new Random();
+
         #region events
         public event DeathNotification OnActorDeath;
 
@@ -33,8 +35,7 @@ namespace SDAGame
 
         #endregion
 
-        System.Collections.Generic.SortedList<int,PendingAction> actionQueue;
-
+        #region properties
         public List<PlayerCharacter> PCS
         {
             get;
@@ -46,13 +47,15 @@ namespace SDAGame
             get;
             private set;
         }
+        #endregion
 
-        public static Random Random = new Random();
+       // System.Collections.Generic.SortedList<int, PendingAction> actionQueue;
+        ActionQueue actionQueue;
 
         public FightScene(params PlayerCharacter[] players)
         {
             //set up data
-            actionQueue = new SortedList<int, PendingAction>(10);
+            actionQueue = new ActionQueue(); // = new SortedList<int, PendingAction>(10);
             PCS = new List<PlayerCharacter>(players);
 
             //get some monsters
@@ -69,14 +72,21 @@ namespace SDAGame
 
         public void AddAction(Action action, Actor[] targets, int SPD)
         {
-            actionQueue.Add(SPD, new PendingAction(action, targets));
+            actionQueue.Add(new PendingAction(action, targets, SPD));
         }
 
         public void ResolveActions()
         {
-            for (int i = actionQueue.Values.Count - 1; i >= 0; ++i)
+            foreach(Enemy enemy in Enemies)
             {
-                actionQueue.Values[i].Execute();
+                if(!enemy.isDead())
+                {
+                    actionQueue.Add(enemy.Act());
+                }
+            }
+            foreach(PendingAction pendingAction in actionQueue)
+            {
+                pendingAction.Execute();
             }
             actionQueue.Clear();
         }

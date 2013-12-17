@@ -17,6 +17,10 @@ namespace SDAGame
             this.random = FightScene.Random;
         }
 
+        /// <summary>
+        /// Randomly chooses an action and a target based on that action's isDefensive.
+        /// </summary>
+        /// <returns></returns>
         public override PendingAction Act()
         {
             int actionIndex = random.Next(this.subject.Actions.Count);
@@ -43,7 +47,7 @@ namespace SDAGame
                 }
             }
 
-            return new PendingAction(toPerform, targets);
+            return new PendingAction(toPerform, targets, subject.SPD);
         }
     }
 }
