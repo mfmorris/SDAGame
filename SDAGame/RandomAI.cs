@@ -47,7 +47,7 @@ namespace SDAGame
                 }
             }
 
-            return new PendingAction(toPerform, targets, subject.SPD);
+            return PackageAction(toPerform, targets);
         }
     }
 }

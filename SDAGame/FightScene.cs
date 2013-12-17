@@ -83,6 +83,7 @@ namespace SDAGame
 
         public void ResolveActions()
         {
+            //get monster actions
             foreach(Enemy enemy in Enemies)
             {
                 if(!enemy.isDead())
@@ -90,12 +91,26 @@ namespace SDAGame
                     actionQueue.Add(enemy.Act());
                 }
             }
+
+            //resolve actions
             foreach(PendingAction pendingAction in actionQueue)
             {
                 pendingAction.Execute();
             }
             actionQueue.Clear();
+
+            //update effects
+            foreach(Enemy en in Enemies)
+            {
+                en.Update();
+            }
+
+            foreach(PlayerCharacter pc in PCS)
+            {
+                pc.Update();
+            }
         }
+
 
     }
 

@@ -23,7 +23,7 @@ namespace SDAGame
 
         public abstract PendingAction Act();
 
-        private virtual PendingAction PackageAction(Action action, Actor[] targets)
+        protected virtual PendingAction PackageAction(Action action, Actor[] targets)
         {
             return new PendingAction(action, targets, subject.SPD + action.SPDMod);
         }
