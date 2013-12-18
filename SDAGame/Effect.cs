@@ -50,7 +50,6 @@ namespace SDAGame
 
         public abstract void Remove();
 
-        public abstract void Stack(Effect effect);
     }
 
     /// <summary>

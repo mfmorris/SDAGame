@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="SDAGame.Action">
-    <Position X="0.75" Y="0.5" Width="1.5" />
+    <Position X="11.25" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAACAAACgAIAACAAAAAQAAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Action.cs</FileName>
@@ -22,7 +22,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.Actor">
-    <Position X="4.75" Y="8.25" Width="1.5" />
+    <Position X="2.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAwEIAAAIQCCAwCUBQQEEIQAUJAEAAAAAAAAgAEkBAA=</HashCode>
       <FileName>Actor.cs</FileName>
@@ -36,63 +36,63 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.AttackAction">
-    <Position X="3.5" Y="2.5" Width="1.5" />
+    <Position X="9.75" Y="12.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
       <FileName>AttackAction.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.CleaveAction">
-    <Position X="0.75" Y="4.75" Width="1.5" />
+    <Position X="7.5" Y="12" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
       <FileName>CleaveAction.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.CureLightAction">
-    <Position X="5.25" Y="1.5" Width="1.5" />
+    <Position X="15.5" Y="12.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
       <FileName>CureLightAction.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.DefendAction">
-    <Position X="3.5" Y="0.5" Width="1.5" />
+    <Position X="13.5" Y="12.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DefendAction.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.Druid">
-    <Position X="1" Y="15.25" Width="1.5" />
+    <Position X="5.75" Y="16.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Druid.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.Effect">
-    <Position X="11.5" Y="7.25" Width="1.5" />
+    <Position X="20.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAABACAAAAAAQABCQAgAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>Effect.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.DefendEffect">
-    <Position X="8" Y="11.25" Width="1.5" />
+    <Position X="20.5" Y="11.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAgAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Effect.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.RageEffect">
-    <Position X="13.75" Y="11" Width="1.5" />
+    <Position X="23" Y="11.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAACAAAAABAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
       <FileName>Effect.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.DisableAbilityEffect">
-    <Position X="8.5" Y="8.25" Width="1.5" />
+    <Position X="18" Y="11.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAAAAAAAABAAAAAAAAAAAAAgAAAAAAIA=</HashCode>
       <FileName>Effect.cs</FileName>
@@ -106,14 +106,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.Enemy">
-    <Position X="2.5" Y="7.75" Width="1.5" />
+    <Position X="0.5" Y="14" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAABAAAEA=</HashCode>
       <FileName>Enemy.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.EnemyAI">
-    <Position X="8.75" Y="4.75" Width="1.5" />
+    <Position X="28.25" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAEAAAAAAAAAACAAAAAAAABIAAAAAAAAEA=</HashCode>
       <FileName>EnemyAI.cs</FileName>
@@ -127,7 +127,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.Kobold">
-    <Position X="0.5" Y="8.5" Width="1.5" />
+    <Position X="0.5" Y="16.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Kobold.cs</FileName>
@@ -155,28 +155,28 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.PlayerCharacter">
-    <Position X="2.25" Y="13.5" Width="1.5" />
+    <Position X="4.5" Y="14" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PlayerCharacter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.RandomAI">
-    <Position X="6.25" Y="5.75" Width="1.5" />
+    <Position X="25.75" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAEA=</HashCode>
       <FileName>RandomAI.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.Viking">
-    <Position X="1" Y="11.75" Width="1.5" />
+    <Position X="3.25" Y="16.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Viking.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.VikingRageAction">
-    <Position X="3" Y="4.75" Width="1.5" />
+    <Position X="11.5" Y="12.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>VikingRageAction.cs</FileName>

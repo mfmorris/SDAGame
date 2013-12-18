@@ -14,7 +14,6 @@ namespace SDAGame
             try
             {
                 Effect firstEffect = this.First(e => e.Name == effect.Name);
-                firstEffect.Stack(effect);
             }
             catch(InvalidOperationException ioe)
             {
