@@ -36,6 +36,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -47,6 +49,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Yuml.Net">
+      <HintPath>..\packages\Yuml.Net.1.2.1.0\lib\net45\Yuml.Net.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -88,6 +93,8 @@
     <Compile Include="MonsterBuilder.cs" />
     <Compile Include="PendingAction.cs" />
     <Compile Include="PlayerCharacter.cs" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
     <None Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
