@@ -58,7 +58,7 @@ namespace SDAGame
             }
         }
 
-        public virtual void Draw() { }//System.Drawing.Graphics g)
+        public virtual void Draw() { }
 
 
         public Effect(Actor target, int duration = 1)
@@ -104,22 +104,33 @@ namespace SDAGame
     public class RageEffect : Effect
     {
         private int atkMod;
+        private VikingRageAction associatedAction;
 
         public RageEffect(Actor target, int duration = 3)
             : base(target)
         {
             this.atkMod = this.Target.BaseATK;
             this.Apply(target);
+            foreach (Action action in target.Actions)
+            {
+                if(action is VikingRageAction)
+                {
+                    this.associatedAction = action as VikingRageAction;
+                    action.Enabled = false;
+                }
+            }
         }
 
         public override void Apply(Actor target)
         {
             this.Target.ATK += atkMod;
+            
         }
 
         public override void Remove(Actor target)
         {
             this.Target.ATK -= atkMod;
+            this.associatedAction.Enabled = true;
         }
     }
 }
