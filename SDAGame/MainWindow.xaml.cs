@@ -85,6 +85,7 @@ namespace SDAGame
             fightScene.OnActorDeath += OnActorDeath;
             fightScene.OnWin += fightScene_OnWin;
             fightScene.OnLose += fightScene_OnLose;
+            fightScene.OnActionResolved += OnActionPerformed;
 
             // Get and Setup Enemies
             enemies[0].Image = EnemyCharacter1;
@@ -584,6 +585,25 @@ namespace SDAGame
                 else if (actor == fightScene.Enemies[4])
                 {
                     EnemyCharacter5.Source = null;
+                }
+            }
+        }
+
+        public void OnActionPerformed(Actor actor, Action action)
+        {
+            if (actor is PlayerCharacter)
+            {
+
+            }
+            else if (actor is Enemy)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if (actor == enemies[i].Actor)
+                    {
+                        
+                        break;
+                    }
                 }
             }
         }

@@ -76,7 +76,7 @@
             <Label x:Name="EnemyDamage1" Content="" Canvas.Left="927" FontFamily="Impact" FontWeight="Bold" FontSize="48" Foreground="Red" IsHitTestVisible="False" Canvas.Top="208"/>
             <Label x:Name="EnemyDamage2" Content="" Canvas.Left="927" FontFamily="Impact" FontWeight="Bold" FontSize="48" Foreground="Red" IsHitTestVisible="False" Canvas.Top="312"/>
             <Label x:Name="EnemyDamage4" Content="" Canvas.Left="927" FontFamily="Impact" FontWeight="Bold" FontSize="48" Foreground="Red" IsHitTestVisible="False" Canvas.Top="416"/>
-            <Label x:Name="EndLabel"     Content="" Canvas.Left="329" FontFamily="Copperplate Gothic Bold" FontSize="48"  Foreground="Red" IsHitTestVisible="False" Canvas.Top="183" Background="Transparent"/>
+            <Label x:Name="EndLabel" Content="" Canvas.Left="329" FontFamily="Copperplate Gothic Bold" FontSize="48"  Foreground="Red" IsHitTestVisible="False" Canvas.Top="183" Background="Transparent"/>
 
         </Canvas>
 

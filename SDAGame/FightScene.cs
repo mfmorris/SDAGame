@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace SDAGame
 {
-    public delegate void ActionResolvedNotification(Actor actor, string displayString);
+    public delegate void ActionResolvedNotification(Actor actor, Action action);
     public delegate void FightEndNotification(FightScene scene);
 
     public class FightScene
@@ -44,11 +44,11 @@ namespace SDAGame
             }
         }
 
-        private void RaiseOnActionResolved(Actor actor, string displayString)
+        private void RaiseOnActionResolved(Actor actor, Action action)
         {
             if (OnActionResolved != null)
             {
-                OnActionResolved(actor, displayString);
+                OnActionResolved(actor, action);
             }
         }
 
@@ -135,7 +135,7 @@ namespace SDAGame
             foreach(PendingAction pendingAction in actionQueue)
             {
                 pendingAction.Execute();
-                RaiseOnActionResolved(pendingAction.actor, pendingAction.action.Name);
+                RaiseOnActionResolved(pendingAction.actor, pendingAction.action);
             }
             actionQueue.Clear();
 
