@@ -66,6 +66,16 @@
             <Rectangle x:Name="EnemyHealthBar4" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="510" Width="100" Visibility="Hidden"/>
             <Label x:Name="StatusLabel" Content="" Canvas.Left="234" Canvas.Top="10" Height="80" Width="598" Foreground="#FF890000" FontWeight="Bold" FontStretch="Expanded" FontFamily="Copperplate Gothic Bold" FontSize="16"/>
             <Button x:Name="NextButton" Content="Next" Width="75" Canvas.Left="498" Canvas.Top="494" Click="NextButton_Click" IsEnabled="False"/>
+            <Label x:Name="PCDamage1" Content="" Canvas.Left="129" Canvas.Top="208" FontFamily="Impact" FontWeight="Bold" FontSize="48" Foreground="Red" IsHitTestVisible="False"/>
+            <Label x:Name="PCDamage2" Content="" Canvas.Left="129" Canvas.Top="312" FontFamily="Impact" FontWeight="Bold" FontSize="48" Foreground="Red" IsHitTestVisible="False"/>
+            <Label x:Name="PCDamage4" Content="" Canvas.Left="129" Canvas.Top="416" FontFamily="Impact" FontWeight="Bold" FontSize="48" Foreground="Red" IsHitTestVisible="False"/>
+            <Label x:Name="PCDamage3" Content="" Canvas.Left="129" Canvas.Top="104" FontFamily="Impact" FontWeight="Bold" FontSize="48" Foreground="Red" IsHitTestVisible="False"/>
+            <Label x:Name="PCDamage5" Content="" Canvas.Left="129" FontFamily="Impact" FontWeight="Bold" FontSize="48" Foreground="Red" IsHitTestVisible="False"/>
+            <Label x:Name="EnemyDamage5" Content="" Canvas.Left="927" FontFamily="Impact" FontWeight="Bold" FontSize="48" Foreground="Red" IsHitTestVisible="False"/>
+            <Label x:Name="EnemyDamage3" Content="" Canvas.Left="927" FontFamily="Impact" FontWeight="Bold" FontSize="48" Foreground="Red" IsHitTestVisible="False" Canvas.Top="104"/>
+            <Label x:Name="EnemyDamage1" Content="" Canvas.Left="927" FontFamily="Impact" FontWeight="Bold" FontSize="48" Foreground="Red" IsHitTestVisible="False" Canvas.Top="208"/>
+            <Label x:Name="EnemyDamage2" Content="" Canvas.Left="927" FontFamily="Impact" FontWeight="Bold" FontSize="48" Foreground="Red" IsHitTestVisible="False" Canvas.Top="312"/>
+            <Label x:Name="EnemyDamage4" Content="" Canvas.Left="927" FontFamily="Impact" FontWeight="Bold" FontSize="48" Foreground="Red" IsHitTestVisible="False" Canvas.Top="416"/>
         </Canvas>
         <ListBox HorizontalAlignment="Left" Height="172" Margin="358,520,0,0" VerticalAlignment="Top" Width="358" x:Name="ActionListBox">
             <ListBoxItem x:Name="ActionItem1" Content="" Selected="ActionItem_Selected" VerticalContentAlignment="Center" Visibility="Hidden"/>
