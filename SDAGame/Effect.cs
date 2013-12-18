@@ -69,7 +69,7 @@ namespace SDAGame
 
         public override void Apply()
         {
-            this.Target.DEF+= defMod;
+            this.Target.DEF += defMod;
         }
 
         public override void Remove()

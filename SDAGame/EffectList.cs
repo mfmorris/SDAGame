@@ -20,11 +20,6 @@ namespace SDAGame
                 base.Add(effect);
             }
 
-            if (this.Count(e => e.Name == effect.Name) > 0)
-            {
-                return;
-            }
-            base.Add(effect);
             effect.Apply();
         }
 
