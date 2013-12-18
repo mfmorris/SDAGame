@@ -61,7 +61,7 @@ namespace SDAGame
         public virtual void Draw() { }
 
 
-        public Effect(Actor target, int duration = 1)
+        public Effect(Actor target, int duration)
         {
             this.Finished = false;
             this.Target = target;
@@ -84,7 +84,7 @@ namespace SDAGame
         private int defMod;
 
         public DefendEffect(Actor target, int duration = 1)
-            : base(target)
+            : base(target, duration)
         {
             this.defMod = this.Target.BaseDEF;
             this.Apply(target);
@@ -107,7 +107,7 @@ namespace SDAGame
         private VikingRageAction associatedAction;
 
         public RageEffect(Actor target, int duration = 3)
-            : base(target)
+            : base(target, duration)
         {
             this.atkMod = this.Target.BaseATK;
             this.Apply(target);
