@@ -114,12 +114,12 @@ namespace SDAGame
             //update effects
             foreach(Enemy en in Enemies)
             {
-                en.Update();
+                //en.Update();
             }
 
             foreach(PlayerCharacter pc in PCS)
             {
-                pc.Update();
+                //pc.Update();
             }
         }
 

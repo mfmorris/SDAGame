@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
 namespace SDAGame
 {
@@ -21,6 +22,7 @@ namespace SDAGame
         public Actor Actor;
         public Image Image;
         public Rectangle HealthBar;
+        public Label Damage;
         //...
     }
     /// <summary>
@@ -52,10 +54,19 @@ namespace SDAGame
         List<Enemy> actionTargets;
 
         ActorUIElement[] enemies = new ActorUIElement[5];
+
+        DoubleAnimation damageFade;
         
         public MainWindow()
         {
             InitializeComponent();
+
+            // General Setup
+            damageFade = new DoubleAnimation();
+            damageFade.From = 0.0;
+            damageFade.To = 1.0;
+            damageFade.Duration = new Duration(TimeSpan.FromSeconds(2));
+            damageFade.AutoReverse = true;
 
             actionTargets = new List<Enemy>();
 
@@ -69,24 +80,29 @@ namespace SDAGame
             totalCharacters = 2;
 
             fightScene = new FightScene(pc1, pc2);
-            fightScene.OnActorHealthChanged += UpdateActor;
-            fightScene.OnActorDeath += KillActor;
+            fightScene.OnActorHealthChanged += OnActorHealthChanged;
+            fightScene.OnActorDeath += OnActorDeath;
 
             // Get and Setup Enemies
             enemies[0].Image = EnemyCharacter1;
             enemies[0].HealthBar = EnemyHealthBar1;
+            enemies[0].Damage = EnemyDamage1;
 
             enemies[1].Image = EnemyCharacter2;
             enemies[1].HealthBar = EnemyHealthBar2;
+            enemies[1].Damage = EnemyDamage2;
 
             enemies[2].Image = EnemyCharacter3;
             enemies[2].HealthBar = EnemyHealthBar3;
+            enemies[2].Damage = EnemyDamage3;
 
             enemies[3].Image = EnemyCharacter4;
             enemies[3].HealthBar = EnemyHealthBar4;
+            enemies[3].Damage = EnemyDamage4;
 
             enemies[4].Image = EnemyCharacter5;
             enemies[4].HealthBar = EnemyHealthBar5;
+            enemies[4].Damage = EnemyDamage5;
 
             for (int i = 0; i < fightScene.Enemies.Count; i++)
             {
@@ -415,29 +431,64 @@ namespace SDAGame
             }
         }
 
-        public void UpdateActor(Actor actor, int damageTaken)
+        public void OnActorHealthChanged(Actor actor, int damageTaken)
         {
             if (actor is PlayerCharacter)
             {
                 if (actor == pc1)
                 {
+                    Storyboard myStoryboard = new Storyboard();
+                    myStoryboard.Children.Add(damageFade);
+                    Storyboard.SetTargetName(damageFade, PCDamage1.Name);
+                    Storyboard.SetTargetProperty(damageFade, new PropertyPath(Label.OpacityProperty));
 
+                    PCDamage1.Content = damageTaken;
+
+                    myStoryboard.Begin(this);
                 }
                 else if (actor == pc2)
                 {
+                    Storyboard myStoryboard = new Storyboard();
+                    myStoryboard.Children.Add(damageFade);
+                    Storyboard.SetTargetName(damageFade, PCDamage2.Name);
+                    Storyboard.SetTargetProperty(damageFade, new PropertyPath(Label.OpacityProperty));
 
+                    PCDamage2.Content = damageTaken;
+
+                    myStoryboard.Begin(this);
                 }
                 else if (actor == pc3)
                 {
+                    Storyboard myStoryboard = new Storyboard();
+                    myStoryboard.Children.Add(damageFade);
+                    Storyboard.SetTargetName(damageFade, PCDamage3.Name);
+                    Storyboard.SetTargetProperty(damageFade, new PropertyPath(Label.OpacityProperty));
 
+                    PCDamage3.Content = damageTaken;
+
+                    myStoryboard.Begin(this);
                 }
                 else if (actor == pc4)
                 {
+                    Storyboard myStoryboard = new Storyboard();
+                    myStoryboard.Children.Add(damageFade);
+                    Storyboard.SetTargetName(damageFade, PCDamage4.Name);
+                    Storyboard.SetTargetProperty(damageFade, new PropertyPath(Label.OpacityProperty));
 
+                    PCDamage4.Content = damageTaken;
+
+                    myStoryboard.Begin(this);
                 }
                 else if (actor == pc5)
                 {
+                    Storyboard myStoryboard = new Storyboard();
+                    myStoryboard.Children.Add(damageFade);
+                    Storyboard.SetTargetName(damageFade, PCDamage5.Name);
+                    Storyboard.SetTargetProperty(damageFade, new PropertyPath(Label.OpacityProperty));
 
+                    PCDamage5.Content = damageTaken;
+
+                    myStoryboard.Begin(this);
                 }
      
             }
@@ -458,13 +509,22 @@ namespace SDAGame
                             enemies[i].HealthBar.Width = 100;
                             enemies[i].HealthBar.Visibility = Visibility.Hidden;
                         }
+
+                        Storyboard myStoryboard = new Storyboard();
+                        myStoryboard.Children.Add(damageFade);
+                        Storyboard.SetTargetName(damageFade, enemies[i].Damage.Name);
+                        Storyboard.SetTargetProperty(damageFade, new PropertyPath(Label.OpacityProperty));
+
+                        enemies[i].Damage.Content = damageTaken;
+
+                        myStoryboard.Begin(this);
                         break;
                     }
                 }
             }
         }
 
-        private void KillActor(Actor actor)
+        private void OnActorDeath(Actor actor)
         {
             if (actor is PlayerCharacter)
             {
