@@ -101,6 +101,11 @@ namespace SDAGame
         }
     }
 
+
+    /// <summary>
+    /// Rage effect increases the Viking's attack and disables using Viking Rage again
+    /// during the time his attack is increased.
+    /// </summary>
     public class RageEffect : Effect
     {
         private int atkMod;
@@ -131,6 +136,36 @@ namespace SDAGame
         {
             this.Target.ATK -= atkMod;
             this.associatedAction.Enabled = true;
+        }
+    }
+
+    public class DisableAbilityEffect : Effect 
+    {
+        private string abilityName;
+        private Action associatedAction;
+
+        public DisableAbilityEffect(Actor target, string abilityName, int duration) : base(target, duration)
+        {
+            this.abilityName = abilityName;
+            this.Apply(target);
+        }
+
+        public override void Apply(Actor target)
+        {
+            foreach (Action action in target.Actions)
+            {
+                if (this.abilityName == action.Name)
+                {
+                    action.Enabled = false;
+                    this.associatedAction = action;
+                    break;
+                }
+            }
+        }
+
+        public override void Remove(Actor target)
+        {
+            associatedAction.Enabled = true;
         }
     }
 }

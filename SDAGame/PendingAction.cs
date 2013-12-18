@@ -13,15 +13,24 @@ namespace SDAGame
     /// </summary>
     public class PendingAction
     {
-        private Action action;
-        private Actor[] targets;
+        #region properties
+
+        public Actor[] targets { get; private set; }
+
+        public Action action { get; private set; }
+
         public int SPD { get; private set; }
+
+        public Actor actor { get; private set; }
+
+        #endregion
 
         public PendingAction(Action action, Actor[] targets, int SPD)
         {
             this.action = action;
             this.targets = targets;
             this.SPD = SPD;
+            this.actor = action.Owner;
         }
 
         public void Execute()

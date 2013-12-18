@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace SDAGame
 {
+    public delegate void ActionResolvedNotification(Actor actor, string displayString);
 
     public class FightScene
     {
@@ -16,6 +17,8 @@ namespace SDAGame
         public event DeathNotification OnActorDeath;
 
         public event DamageNotification OnActorHealthChanged;
+
+        public event ActionResolvedNotification OnActionResolved;
 
         private void RaiseOnActorDeath(Actor deadGuy)
         {
@@ -30,6 +33,14 @@ namespace SDAGame
             if (OnActorHealthChanged != null)
             {
                 OnActorHealthChanged(sender, damageTaken);
+            }
+        }
+
+        private void RaiseOnActionResolved(Actor actor, string displayString)
+        {
+            if (OnActionResolved != null)
+            {
+                OnActionResolved(actor, displayString);
             }
         }
 
@@ -96,6 +107,7 @@ namespace SDAGame
             foreach(PendingAction pendingAction in actionQueue)
             {
                 pendingAction.Execute();
+                RaiseOnActionResolved(pendingAction.actor, pendingAction.action.Name);
             }
             actionQueue.Clear();
 

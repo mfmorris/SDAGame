@@ -39,6 +39,8 @@ namespace SDAGame
                     target.TakeDamage(damageDealt);
                 }
             }
+
+            Owner.AddEffect(new DisableAbilityEffect(Owner, this.Name, 3));
         }
     }
 }
