@@ -59,11 +59,11 @@
                     <DropShadowEffect/>
                 </Image.Effect>
             </Image>
-            <Rectangle x:Name="EnemyHealthBar5" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="94" Width="100" Visibility="Hidden"/>
-            <Rectangle x:Name="EnemyHealthBar3" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="198" Width="100" Visibility="Hidden"/>
-            <Rectangle x:Name="EnemyHealthBar1" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="302" Width="100" Visibility="Hidden"/>
-            <Rectangle x:Name="EnemyHealthBar2" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="406" Width="100" Visibility="Hidden"/>
-            <Rectangle x:Name="EnemyHealthBar4" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="510" Width="100" Visibility="Hidden"/>
+            <Rectangle x:Name="EnemyHealthBar5" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="94" Width="100" Visibility="Hidden" IsHitTestVisible="False"/>
+            <Rectangle x:Name="EnemyHealthBar3" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="198" Width="100" Visibility="Hidden" IsHitTestVisible="False"/>
+            <Rectangle x:Name="EnemyHealthBar1" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="302" Width="100" Visibility="Hidden" IsHitTestVisible="False"/>
+            <Rectangle x:Name="EnemyHealthBar2" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="406" Width="100" Visibility="Hidden" IsHitTestVisible="False"/>
+            <Rectangle x:Name="EnemyHealthBar4" Fill="#FFA80000" Height="10" Canvas.Left="837" Stroke="Black" Canvas.Top="510" Width="100" Visibility="Hidden" IsHitTestVisible="False"/>
             <Label x:Name="StatusLabel" Content="" Canvas.Left="234" Canvas.Top="10" Height="80" Width="598" Foreground="#FF890000" FontWeight="Bold" FontStretch="Expanded" FontFamily="Copperplate Gothic Bold" FontSize="16"/>
             <Button x:Name="NextButton" Content="Next" Width="75" Canvas.Left="498" Canvas.Top="494" Click="NextButton_Click" IsEnabled="False"/>
             <Label x:Name="PCDamage1" Content="" Canvas.Left="129" Canvas.Top="208" FontFamily="Impact" FontWeight="Bold" FontSize="48" Foreground="Red" IsHitTestVisible="False"/>
