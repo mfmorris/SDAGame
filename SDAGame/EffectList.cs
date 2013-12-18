@@ -17,27 +17,28 @@ namespace SDAGame
             base.Add(effect);
         }
 
-        public void Remove(string name)
+        public void Remove(List<Effect> removes)
         {
-            foreach (Effect effect in this)
+            foreach (Effect effect in removes)
             {
-                if (effect.Name == name)
-                {
-                    this.Remove(effect);
-                }
+                base.Remove(effect);
             }
+
         }
 
         public void Update(int delta = 1)
         {
+            List<Effect> removes = new List<Effect>();
             foreach (Effect effect in this)
             {
                 effect.Update();
                 if (effect.Finished)
                 {
-                    this.Remove(effect);
+                    removes.Add(effect);
                 }
             }
+
+            this.Remove(removes);
         }
     }
 
