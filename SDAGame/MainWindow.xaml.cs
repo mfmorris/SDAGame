@@ -209,26 +209,66 @@ namespace SDAGame
             {
                 ActionItem1.Content = selectedPC.Actions[0].Name;
                 ActionItem1.Visibility = Visibility.Visible;
+                if (selectedPC.Actions[0].Enabled)
+                {
+                    ActionItem1.IsEnabled = true;
+                }
+                else
+                {
+                    ActionItem1.IsEnabled = false;
+                }
             }
             if (selectedPC.Actions.Count > 1)
             {
                 ActionItem2.Content = selectedPC.Actions[1].Name;
                 ActionItem2.Visibility = Visibility.Visible;
+                if (selectedPC.Actions[1].Enabled)
+                {
+                    ActionItem2.IsEnabled = true;
+                }
+                else
+                {
+                    ActionItem2.IsEnabled = false;
+                }
             }
             if (selectedPC.Actions.Count > 2)
             {
                 ActionItem3.Content = selectedPC.Actions[2].Name;
                 ActionItem3.Visibility = Visibility.Visible;
+                if (selectedPC.Actions[2].Enabled)
+                {
+                    ActionItem3.IsEnabled = true;
+                }
+                else
+                {
+                    ActionItem3.IsEnabled = false;
+                }
             }
             if (selectedPC.Actions.Count > 3)
             {
                 ActionItem4.Content = selectedPC.Actions[3].Name;
                 ActionItem4.Visibility = Visibility.Visible;
+                if (selectedPC.Actions[3].Enabled)
+                {
+                    ActionItem4.IsEnabled = true;
+                }
+                else
+                {
+                    ActionItem4.IsEnabled = false;
+                }
             }
             if (selectedPC.Actions.Count > 4)
             {
                 ActionItem5.Content = selectedPC.Actions[4].Name;
                 ActionItem5.Visibility = Visibility.Visible;
+                if (selectedPC.Actions[4].Enabled)
+                {
+                    ActionItem5.IsEnabled = true;
+                }
+                else
+                {
+                    ActionItem5.IsEnabled = false;
+                }
             }
         }
 
