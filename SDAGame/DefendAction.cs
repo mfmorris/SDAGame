@@ -19,7 +19,7 @@ namespace SDAGame
             this.Description = "Brace for the assault: increases defense.";
             this.isDefensive = true;
             this.Enabled = true;
-            this.SPDMod = int.MaxValue;
+            this.SPDMod = 1000;
         }
 
         public override void Resolve(Actor[] targets)

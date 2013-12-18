@@ -7,11 +7,15 @@ using System.Threading;
 namespace SDAGame
 {
     public delegate void ActionResolvedNotification(Actor actor, string displayString);
+    public delegate void FightEndNotification(FightScene scene);
 
     public class FightScene
     {
 
         public static Random Random = new Random();
+
+        private int liveEnemies;
+        private int livePCs;
 
         #region events
         public event DeathNotification OnActorDeath;
@@ -19,6 +23,10 @@ namespace SDAGame
         public event DamageNotification OnActorHealthChanged;
 
         public event ActionResolvedNotification OnActionResolved;
+
+        public event FightEndNotification OnWin;
+
+        public event FightEndNotification OnLose;
 
         private void RaiseOnActorDeath(Actor deadGuy)
         {
@@ -44,6 +52,21 @@ namespace SDAGame
             }
         }
 
+        private void RaiseOnWin()
+        {
+            if (OnWin != null)
+            {
+                OnWin(this);
+            }
+        }
+
+        private void RaiseOnLose()
+        {
+            if (OnLose != null)
+            {
+                OnLose(this);
+            }
+        }
         #endregion
 
         #region properties
@@ -78,13 +101,18 @@ namespace SDAGame
             {
                 ankleBiter.OnHealthChanged += RaiseOnActorHealthChanged;
                 ankleBiter.OnDeath += RaiseOnActorDeath;
+                ankleBiter.OnDeath += EnemyDeathListener;
             }
 
             foreach(PlayerCharacter pc in PCS)
             {
                 pc.OnHealthChanged += RaiseOnActorHealthChanged;
                 pc.OnDeath += RaiseOnActorDeath;
+                pc.OnDeath += PCDeathListener;
             }
+
+            this.liveEnemies = Enemies.Count;
+            this.livePCs = PCS.Count;
         }
 
         public void AddAction(Action action, Actor[] targets, int SPD)
@@ -114,13 +142,35 @@ namespace SDAGame
             //update effects
             foreach(Enemy en in Enemies)
             {
-                //en.Update();
+                en.Update();
             }
 
             foreach(PlayerCharacter pc in PCS)
             {
-                //pc.Update();
+                pc.Update();
             }
+        }
+
+        private void EnemyDeathListener(Actor deadGuy)
+        {
+
+            --liveEnemies;
+            if(liveEnemies == 0)
+            {
+                RaiseOnWin();
+            }
+
+        }
+
+        private void PCDeathListener(Actor deadGuy)
+        {
+
+            --livePCs;
+            if (livePCs == 0)
+            {
+                RaiseOnLose();
+            }
+
         }
 
 

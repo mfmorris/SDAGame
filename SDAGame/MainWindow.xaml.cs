@@ -79,9 +79,12 @@ namespace SDAGame
 
             totalCharacters = 2;
 
+            //make fight logic and subscribe to events
             fightScene = new FightScene(pc1, pc2);
             fightScene.OnActorHealthChanged += OnActorHealthChanged;
             fightScene.OnActorDeath += OnActorDeath;
+            fightScene.OnWin += fightScene_OnWin;
+            fightScene.OnLose += fightScene_OnLose;
 
             // Get and Setup Enemies
             enemies[0].Image = EnemyCharacter1;
@@ -114,6 +117,16 @@ namespace SDAGame
             // Set start state and begin
             state = CHARACTER_SELECT;
             StatusLabel.Content = "Select a character.";
+        }
+
+        void fightScene_OnLose(FightScene scene)
+        {
+            EndLabel.Content = ("      You Lose!\nYou get Nothing.");
+        }
+
+        void fightScene_OnWin(FightScene scene)
+        {
+            EndLabel.Content = ("        You Win!\nYou get Treasure!\n     And Levels!");
         }
 
         private void ActionItem_Selected(object sender, RoutedEventArgs e)

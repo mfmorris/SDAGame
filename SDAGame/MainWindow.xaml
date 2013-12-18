@@ -76,7 +76,10 @@
             <Label x:Name="EnemyDamage1" Content="" Canvas.Left="927" FontFamily="Impact" FontWeight="Bold" FontSize="48" Foreground="Red" IsHitTestVisible="False" Canvas.Top="208"/>
             <Label x:Name="EnemyDamage2" Content="" Canvas.Left="927" FontFamily="Impact" FontWeight="Bold" FontSize="48" Foreground="Red" IsHitTestVisible="False" Canvas.Top="312"/>
             <Label x:Name="EnemyDamage4" Content="" Canvas.Left="927" FontFamily="Impact" FontWeight="Bold" FontSize="48" Foreground="Red" IsHitTestVisible="False" Canvas.Top="416"/>
+            <Label x:Name="EndLabel"     Content="" Canvas.Left="329" FontFamily="Copperplate Gothic Bold" FontSize="48"  Foreground="Red" IsHitTestVisible="False" Canvas.Top="183" Background="Transparent"/>
+
         </Canvas>
+
         <ListBox HorizontalAlignment="Left" Height="172" Margin="358,520,0,0" VerticalAlignment="Top" Width="358" x:Name="ActionListBox">
             <ListBoxItem x:Name="ActionItem1" Content="" Selected="ActionItem_Selected" VerticalContentAlignment="Center" Visibility="Hidden"/>
             <ListBoxItem x:Name="ActionItem2" Content="" Selected="ActionItem_Selected" VerticalContentAlignment="Center" Visibility="Hidden"/>

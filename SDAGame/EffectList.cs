@@ -10,11 +10,23 @@ namespace SDAGame
     {
         public new void Add(Effect effect)
         {
-            if ((this.Count(e => e.Name == effect.Name) > 0) && !effect.CanStack)
+
+            try
+            {
+                Effect firstEffect = this.First(e => e.Name == effect.Name);
+                firstEffect.Stack(effect);
+            }
+            catch(InvalidOperationException ioe)
+            {
+                base.Add(effect);
+            }
+
+            if (this.Count(e => e.Name == effect.Name) > 0)
             {
                 return;
             }
             base.Add(effect);
+            effect.Apply();
         }
 
         public void Remove(List<Effect> removes)

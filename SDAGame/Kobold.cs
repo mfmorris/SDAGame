@@ -12,7 +12,7 @@ namespace SDAGame
         public Kobold(string name = "Kobold", string imageName = "\\kobold.png", string portraitName = null)
             :base(name, imageName, portraitName)
         {
-            MaxHP = 100;
+            MaxHP = 10;
             BaseATK = 4;
             BaseDEF = 8;
             BaseSPD = 8;

@@ -17,35 +17,15 @@ namespace SDAGame
     {
 
         #region properties
-        public Actor Target
-        { 
-            get; 
-            protected set;
-        }
+        public Actor Target { get; protected set; }
 
-        public int Duration
-        {
-            get;
-            protected set;
-        }
+        public int Duration { get; protected set; }
 
-        public bool Finished
-        {
-            get;
-            protected set;
-        }
+        public bool Finished { get; protected set; }
 
-        public virtual string Name
-        {
-            get;
-            protected set;
-        }
+        public virtual string Name { get; protected set; }
 
-        public virtual bool CanStack
-        {
-            get;
-            protected set;
-        }
+        public virtual bool CanStack { get; protected set; }
         #endregion
 
         public virtual void Update(int delta = 1)
@@ -54,11 +34,9 @@ namespace SDAGame
             if (Duration == 0)
             {
                 this.Finished = true;
-                this.Remove(Target);
+                this.Remove();
             }
         }
-
-        public virtual void Draw() { }
 
 
         public Effect(Actor target, int duration)
@@ -68,11 +46,11 @@ namespace SDAGame
             Duration = duration;
         }
 
-        //do these need to be public?
-        //do they need the argument?
-        public abstract void Apply(Actor target);
+        public abstract void Apply();
 
-        public abstract void Remove(Actor target);
+        public abstract void Remove();
+
+        public abstract void Stack(Effect effect);
     }
 
     /// <summary>
@@ -87,15 +65,15 @@ namespace SDAGame
             : base(target, duration)
         {
             this.defMod = this.Target.BaseDEF;
-            this.Apply(target);
+            this.Name = "Defend";
         }
 
-        public override void Apply(Actor target)
+        public override void Apply()
         {
             this.Target.DEF+= defMod;
         }
 
-        public override void Remove(Actor target)
+        public override void Remove()
         {
             this.Target.DEF -= defMod;
         }
@@ -115,7 +93,7 @@ namespace SDAGame
             : base(target, duration)
         {
             this.atkMod = this.Target.BaseATK;
-            this.Apply(target);
+            this.Name = "Viking's Rage";
             foreach (Action action in target.Actions)
             {
                 if(action is VikingRageAction)
@@ -126,13 +104,13 @@ namespace SDAGame
             }
         }
 
-        public override void Apply(Actor target)
+        public override void Apply()
         {
             this.Target.ATK += atkMod;
             
         }
 
-        public override void Remove(Actor target)
+        public override void Remove()
         {
             this.Target.ATK -= atkMod;
             this.associatedAction.Enabled = true;
@@ -147,12 +125,12 @@ namespace SDAGame
         public DisableAbilityEffect(Actor target, string abilityName, int duration) : base(target, duration)
         {
             this.abilityName = abilityName;
-            this.Apply(target);
+            this.Name = "Disable " + abilityName;
         }
 
-        public override void Apply(Actor target)
+        public override void Apply()
         {
-            foreach (Action action in target.Actions)
+            foreach (Action action in Target.Actions)
             {
                 if (this.abilityName == action.Name)
                 {
@@ -163,7 +141,7 @@ namespace SDAGame
             }
         }
 
-        public override void Remove(Actor target)
+        public override void Remove()
         {
             associatedAction.Enabled = true;
         }
