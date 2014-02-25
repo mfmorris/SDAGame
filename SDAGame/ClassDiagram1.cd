@@ -1,38 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="SDAGame.Action">
-    <Position X="11.25" Y="8" Width="1.5" />
+    <Position X="13" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAACAAACgAIAACAAAAAQAAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Action.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SDAGame.ActionList">
-    <Position X="13.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ActionList.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="SDAGame.ActionQueue">
-    <Position X="15.5" Y="2" Width="1.5" />
+    <Position X="17" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ActionQueue.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SDAGame.Actor">
-    <Position X="2.75" Y="5.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>gAwEIAAAIQCCAwCUBQQEEIQAUJAEAAAAAAAAgAEkBAA=</HashCode>
-      <FileName>Actor.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SDAGame.App">
-    <Position X="15.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>App.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.AttackAction">
@@ -63,116 +42,60 @@
       <FileName>DefendAction.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SDAGame.Druid">
-    <Position X="5.75" Y="16.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Druid.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="SDAGame.Effect">
-    <Position X="20.5" Y="7.5" Width="1.5" />
+    <Position X="21" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAABACAAAAAAQABCQAgAAAAAAAAAAAIAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAABACAAAAAAQABCQAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>Effect.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.DefendEffect">
-    <Position X="20.5" Y="11.25" Width="1.5" />
+    <Position X="21" Y="12.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAgAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Effect.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.RageEffect">
-    <Position X="23" Y="11.25" Width="1.5" />
+    <Position X="23.5" Y="12.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAACAAAAABAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
       <FileName>Effect.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.DisableAbilityEffect">
-    <Position X="18" Y="11.25" Width="1.5" />
+    <Position X="18.5" Y="12.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAAAAAAAABAAAAAAAAAAAAAgAAAAAAIA=</HashCode>
       <FileName>Effect.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SDAGame.EffectList">
-    <Position X="17.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EffectList.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SDAGame.Enemy">
-    <Position X="0.5" Y="14" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAABAAAEA=</HashCode>
-      <FileName>Enemy.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SDAGame.EnemyAI">
-    <Position X="28.25" Y="8.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAEAAAAAAAAAACAAAAAAAABIAAAAAAAAEA=</HashCode>
-      <FileName>EnemyAI.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="SDAGame.FightScene">
-    <Position X="12" Y="0.5" Width="1.5" />
+    <Position X="14.5" Y="0.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>CAAAgSAAAAQAIAAAAEAAEAAIAAEAhEADAAABBAogAAA=</HashCode>
       <FileName>FightScene.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SDAGame.Kobold">
-    <Position X="0.5" Y="16.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Kobold.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="SDAGame.MainWindow">
-    <Position X="23.75" Y="0.5" Width="1.5" />
+    <Position X="22" Y="0.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>ICEAACAIAEACMEAAAAABAAAAAAAUBQAHQAAhCAIgBBA=</HashCode>
+      <HashCode>ICEEACAIAEACMEAAAAABAAAAAAAUBQAHQAAhCAIgBBA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.MonsterBuilder">
-    <Position X="17.25" Y="2.5" Width="1.5" />
+    <Position X="12.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEYAAAAAAAA=</HashCode>
       <FileName>MonsterBuilder.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.PendingAction">
-    <Position X="21" Y="0.5" Width="1.5" />
+    <Position X="17" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABAAAAAAAAAQAAIAAAAAAAIAAAAAAAABAAAAAAAA=</HashCode>
       <FileName>PendingAction.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SDAGame.PlayerCharacter">
-    <Position X="4.5" Y="14" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>PlayerCharacter.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SDAGame.RandomAI">
-    <Position X="25.75" Y="9.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAEA=</HashCode>
-      <FileName>RandomAI.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SDAGame.Viking">
-    <Position X="3.25" Y="16.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Viking.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SDAGame.VikingRageAction">
@@ -182,48 +105,106 @@
       <FileName>VikingRageAction.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SDAGame.Properties.Resources">
-    <Position X="13.75" Y="2.25" Width="1.5" />
+  <Class Name="SDAGame.ActionList">
+    <Position X="6.5" Y="15.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ActionList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SDAGame.Properties.Settings">
-    <Position X="19.25" Y="0.5" Width="1.5" />
+  <Class Name="SDAGame.EffectList">
+    <Position X="2" Y="15.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAYAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EffectList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SDAGame.Actor">
+    <Position X="4" Y="9.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>gAwEIAAAIQCCAwCUBQQEEIQAUJAEAAAAAAAAgAEkBAA=</HashCode>
+      <FileName>Actor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SDAGame.PlayerCharacter">
+    <Position X="1.75" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PlayerCharacter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SDAGame.Enemy">
+    <Position X="6" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAABAAAEA=</HashCode>
+      <FileName>Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SDAGame.Kobold">
+    <Position X="6" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Kobold.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SDAGame.Druid">
+    <Position X="2.75" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Druid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SDAGame.Viking">
+    <Position X="0.75" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Viking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SDAGame.RandomAI">
+    <Position X="9.75" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAEA=</HashCode>
+      <FileName>RandomAI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SDAGame.EnemyAI">
+    <Position X="9.75" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAACAAAAAAAABIAAAAAAAAEA=</HashCode>
+      <FileName>EnemyAI.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="SDAGame.ActorUIElement">
-    <Position X="13.75" Y="5" Width="1.5" />
+    <Position X="20" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAAAAgAAAAAAAAAAAAAAAABAAABAAAAAAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Delegate Name="SDAGame.DeathNotification">
-    <Position X="15.5" Y="5" Width="1.5" />
+    <Position X="9.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
       <FileName>Actor.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Delegate Name="SDAGame.DamageNotification">
-    <Position X="17.5" Y="6" Width="1.5" />
+    <Position X="18.25" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCAAAAAAAAA=</HashCode>
       <FileName>Actor.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Delegate Name="SDAGame.ActionResolvedNotification">
-    <Position X="15.5" Y="6" Width="1.5" />
+    <Position X="15" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAA=</HashCode>
       <FileName>FightScene.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Delegate Name="SDAGame.FightEndNotification">
-    <Position X="17.25" Y="5" Width="1.5" />
+    <Position X="12.25" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FightScene.cs</FileName>
